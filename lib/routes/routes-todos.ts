@@ -37,7 +37,7 @@ router.post('/',authRequired, function (req : any, res : any) {
     }
 
     let todo = new Todos({
-        // authorId: req.user._id,
+        authorId: req.user._id,
         title: req.body.title.trim(),
         place: req.body.place.trim(),
         description: req.body.description.trim(),
@@ -80,9 +80,9 @@ router.put('/:id',authRequired, function (req : any, res : any) {
     }
 
     let { id } : any =  req.params;
-    let { title  , place , description }:any = req.body;
+    let { title  , place , description , status }:any = req.body;
 
-    Todos.findByIdAndUpdate(id ,{title,place,description}).exec(function (err :any, todo:any) {
+    Todos.findByIdAndUpdate(id ,{title,place,description,status}).exec(function (err :any, todo:any) {
 
         if (!todo) {
             res.t.message = "Todo not available"

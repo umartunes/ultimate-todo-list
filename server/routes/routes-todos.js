@@ -25,7 +25,7 @@ router.post('/', auth_required_1.default, function (req, res) {
         return res.send(res.t);
     }
     let todo = new model_todos_1.default({
-        // authorId: req.user._id,
+        authorId: req.user._id,
         title: req.body.title.trim(),
         place: req.body.place.trim(),
         description: req.body.description.trim(),
@@ -54,8 +54,8 @@ router.put('/:id', auth_required_1.default, function (req, res) {
         return res.send(res.t);
     }
     let { id } = req.params;
-    let { title, place, description } = req.body;
-    model_todos_1.default.findByIdAndUpdate(id, { title, place, description }).exec(function (err, todo) {
+    let { title, place, description, status } = req.body;
+    model_todos_1.default.findByIdAndUpdate(id, { title, place, description, status }).exec(function (err, todo) {
         if (!todo) {
             res.t.message = "Todo not available";
             return res.send(res.t);
