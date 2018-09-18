@@ -26,7 +26,7 @@ router.get('/', authRequired, (req, res : any) => {
 
 })
 
-router.post('/', authRequired, function (req : any, res : any) {
+router.post('/',authRequired, function (req : any, res : any) {
 
     // console.log(req.body)
     // console.log(req.body.moreInfo)
@@ -37,7 +37,7 @@ router.post('/', authRequired, function (req : any, res : any) {
     }
 
     let todo = new Todos({
-        authorId: req.user._id,
+        // authorId: req.user._id,
         title: req.body.title.trim(),
         place: req.body.place.trim(),
         description: req.body.description.trim(),
@@ -70,4 +70,54 @@ router.get('/:id', authRequired, function (req, res : any) {
 
 })
 
+// Update Todos 
+
+router.put('/:id',authRequired, function (req : any, res : any) {
+
+    if (!req.body.title || !req.body.place || !req.body.description) {
+        res.t.message = "Invalid Request"
+        return res.send(res.t)
+    }
+
+    let { id } : any =  req.params;
+    let { title  , place , description }:any = req.body;
+
+    Todos.findByIdAndUpdate(id ,{title,place,description}).exec(function (err :any, todo:any) {
+
+        if (!todo) {
+            res.t.message = "Todo not available"
+            return res.send(res.t)
+        }
+
+        res.t.success = true
+        res.t.message = "Todo Found"
+        res.t.data = todo
+
+        return res.send(res.t)
+
+    })
+
+})
+
+//Delete Todo
+router.delete('/:id',authRequired, function (req:any, res : any) {
+
+    let { id } : any = req.params;
+
+    Todos.findByIdAndRemove(id).exec(function (err : any, todo : any) {
+
+        if (!todo) {
+            res.t.message = "Todo not available"
+            return res.send(res.t)
+        }
+
+        res.t.success = true
+        res.t.message = "Todo Deleted"
+        res.t.data = todo
+
+        return res.send(res.t)
+
+    })
+
+})
 export default router
