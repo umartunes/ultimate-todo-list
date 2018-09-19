@@ -3,17 +3,19 @@ import SideNave from './SideNave';
 import Header from './Header';
 import Section from './Section';
 
-const Dashoard = () => (
+class Dashoard extends React.Component {
+    render() {
+        return (
+            <React.Fragment>
+                <SideNave />
+                <Header />
+                <Section />
+            </React.Fragment>
 
-    <React.Fragment>
-        <SideNave />
-        <Header />
-        <Section/>
-    </React.Fragment>
 
-
-)
-
+        )
+    }
+}
 export default Dashoard
 
 

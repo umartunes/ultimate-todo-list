@@ -1,6 +1,5 @@
 
 import React from 'react';
-
 import { connect } from 'react-redux'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { pushTodos } from '../redux/actions/actions-todos'
@@ -10,7 +9,7 @@ import { Link } from 'react-router-dom'
 import { postTodo } from '../redux/actions/actions-todos'
 // import ShowTodo from './showTodo'
 
-class AddTodo extends React.Component {
+class EditTodo extends React.Component {
 
     state = {
         title: '',
@@ -54,7 +53,7 @@ class AddTodo extends React.Component {
                     <div className="row">
                         <div className="container">
                             <div className="col s12">
-                                <h5 className="white-text center-align">Add New Todo</h5>
+                                <h5 className="white-text center-align">Edit Todo</h5>
                                 <Link to="/" className="backButton">
 
                                     <FontAwesomeIcon icon="long-arrow-alt-left" className="text-sky-blue fs-32" size="2x" />
@@ -77,7 +76,7 @@ class AddTodo extends React.Component {
                             <div className="input-field col s12">
                                 <FontAwesomeIcon icon="clipboard-list" className="prefix" size="2x" />
 
-                                <input type="text" id="title" value={this.state.title} onChange={this.onchange} name="title" className="validate white-text" />
+                                <input type="text" id="title" value={this.state.title} onChange={this.onchange} name="title" className="validate" />
                                 <label htmlFor="title" className="white-text">Title</label>
                             </div>
                         </div>
@@ -87,7 +86,7 @@ class AddTodo extends React.Component {
                         <div className="container">
                             <div className="input-field col s12">
                                 <FontAwesomeIcon icon="map-marker-alt" className="prefix" size="2x" />
-                                <input type="text" id="place"  value={this.state.place} onChange={this.onchange} name="place" className="validate white-text" />
+                                <input type="text" id="place" value={this.state.place} onChange={this.onchange} name="place" className="validate" />
                                 <label htmlFor="place" className="white-text">Place</label>
                             </div>
                         </div>
@@ -97,7 +96,7 @@ class AddTodo extends React.Component {
                         <div className="container">
                             <div className="input-field col s12">
                                 <FontAwesomeIcon icon="file-alt" className="prefix" size="2x" />
-                                <input type="text" id="description" value={this.state.description} onChange={this.onchange} name="description" className="validate white-text" />
+                                <input type="text" id="description" value={this.state.description} onChange={this.onchange} name="description" className="validate" />
                                 <label htmlFor="description" className="white-text">Description</label>
                             </div>
                         </div>
@@ -126,5 +125,5 @@ const getTodoList = (state) => {
     }
 }
 
-export default connect(getTodoList, { postTodo })(AddTodo);
+export default connect(getTodoList, { postTodo })(EditTodo);
 

@@ -50,11 +50,11 @@ export const unshiftTodos = todos => {
         payload: { todos }
     }
 }
-export const deleteTodo = title => {
+export const deleteTodo = id => {
 
     return {
         type: 'DELETE_TODO',
-        payload: { title }
+        payload: { id }
     }
 }
 export const editTodo = (todo) => {
@@ -73,22 +73,22 @@ export const editStatus = (title) => {
 
 
 
-// export const fetch = (params) => {
+export const fetch = () => {
 
-//     params = params || {}
+    // params = params || {}
 
-//     return (dispatch, getState) => {
+    return (dispatch, getState) => {
 
-//         dispatch(setLoading())
+        dispatch(setLoading())
 
-//         axios.get(window.baseURL + `/api/todos/`, { params: params })
-//             .then(response => response.data)
-//             .then(todos => dispatch(set(todos)))
-//             .catch(error => dispatch(setError(error)))
+        axios.get(window.baseURL + `/api/todos/`)
+            .then(response => response.data)
+            .then(result => dispatch(setTodos(result.data)))
+            .catch(error => { console.log("error", error) })
 
-//     }
+    }
 
-// }
+}
 
 // export const fetchSingle = (_id) => {
 
@@ -113,16 +113,35 @@ export const postTodo = (formData) => {
     //     //     var percentCompleted = Math.round((progressEvent.loaded * 100) / progressEvent.total);
     //     // }
     // };
-console.log("state data",formData)
+
     return (dispatch, getState) => {
+
+        dispatch(setLoading())
 
         axios.post(window.baseURL + `/api/todos/`, formData, )
             .then(response => response.data)
             .then(data => {
-                console.log("server saved data",data)
+                dispatch(pushTodos(data.data))
 
             })
-            .catch(error => { console.log("errror form server ",error) })
+            .catch(error => { console.log("errror form server ", error) })
+
+    }
+
+}
+
+export const deleteSingle = (_id) => {
+
+    return (dispatch, getState) => {
+
+        dispatch(setLoading())
+
+        axios.delete(window.baseURL + `/api/todos/${_id}/`)
+            .then(response => response.data)
+            .then(result => {
+                dispatch(deleteTodo(result.data._id))
+            })
+            .catch(error => dispatch(setError(error)))
 
     }
 

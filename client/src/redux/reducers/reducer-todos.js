@@ -18,8 +18,8 @@ const todos = (state = initialState, action) => {
             return Object.assign({}, state, { isLoading: true, error: null })
 
         case 'SET_TODOS_PAYLOAD':
-
-            return Object.assign({}, state, action.payload, { isLoading: false })
+          
+            return Object.assign({}, state, { todos: action.payload.todos }, { isLoading: false })
 
         case 'PUSH_TODOS':
 
@@ -32,7 +32,7 @@ const todos = (state = initialState, action) => {
             // mobeen add Delete todo reduver
             let newList = state.todos.filter((todo) => {
 
-                return todo.title != action.payload.title
+                return todo._id != action.payload.id
 
             })
 
@@ -46,28 +46,28 @@ const todos = (state = initialState, action) => {
             let index = updateList.findIndex(todo => todo.title == action.payload.todo.title);
 
 
-          
+
             if (index >= 0) {
-          
+
                 updateList[index] = action.payload.todo
             }
             return Object.assign({}, state, { todos: updateList })
 
 
         case 'EDIT_STATUS':
-     
+
             // mobeen add Edit Status reduver
             let updateProgress = state.todos;
 
             let indexProg = updateProgress.findIndex(todo => todo.title == action.payload.title);
 
 
-           
+
             if (indexProg >= 0) {
-         
-                updateProgress[indexProg].progress = ! updateProgress[indexProg].progress;
+
+                updateProgress[indexProg].progress = !updateProgress[indexProg].progress;
             }
-            
+
             return Object.assign({}, state, { todos: updateProgress })
 
 

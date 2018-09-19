@@ -52,7 +52,7 @@ class SideNave extends React.Component {
                     <hr />
 
                     <li>
-                        <Link to="/" className="waves-effect sidenav-font"  >
+                        <Link to="/create" className="waves-effect sidenav-font"  >
 
                             <FontAwesomeIcon icon="list-ul" className="blue-text tex-darken-4"
 

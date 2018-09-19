@@ -117,3 +117,14 @@ header, main, footer {
 .sidenav-font{
     font-size: 18px;
 }
+.taskListBorder{
+    padding-top: 25px;
+     padding-left: 10px;
+      padding-right: 0px;
+       padding-bottom: 15px;
+    border-left:2px solid blue;
+}
+
+.cursor-setting{
+    cursor:pointer;
+}

@@ -2,35 +2,21 @@ import React from 'react'
 import { Link } from 'react-router-dom'
 import TaskList from './TaskList';
 import { connect } from 'react-redux'
-
+import { fetch } from '../redux/actions/actions-todos';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 class Section extends React.Component {
-    state = {
-        TaskLis: [
-            {
-                title: 'Fron End',
-                location: 'E-Liberary',
-                description: 'i will complete my Front End Today at E-Liaberary'
-            },
-            {
-                title: 'Back End',
-                location: 'E-Liberary',
-                description: 'i will complete my Back End Today at E-Liaberary'
-            },
-            {
-                title: 'Crud',
-                location: 'E-Liberary',
-                description: 'i will complete my Crud Operation Today at E-Liaberary'
-            },
 
-        ]
+    componentWillMount() {
+
+        this.props.fetch()
     }
     render() {
         return (
             <React.Fragment>
 
                 <main style={{ margin: 10 }} >
-                    {this.props.todo.length > 0 ? this.state.TaskLis.map((task, i) => {
-                        return <TaskList key={i} task={task} />
+                    {this.props.todos && this.props.todos.length > 0 ? this.props.todos.map((todo, i) => {
+                        return <TaskList key={i} todo={todo} />
 
                     }) : <p>No TaskLis</p>}
 
@@ -40,8 +26,7 @@ class Section extends React.Component {
                 {/* <!-- Fixed Floating Action Button --> */}
                 <div className="fixed-action-btn">
                     <Link to="/create" className="btn-floating btn-large waves-effect waves-light hoverable sky-blue">
-                        <i className="large material-icons">add</i>
-
+                     <FontAwesomeIcon icon="plus" size="1x" />
                     </Link>
                 </div>
             </React.Fragment>
@@ -51,8 +36,8 @@ class Section extends React.Component {
 const getTodoList = (state) => {
 
     return {
-        todo: state.todos.todos
+        todos: state.todos.todos
     }
 }
 
-export default connect(getTodoList,null)(Section)
+export default connect(getTodoList, { fetch })(Section)
