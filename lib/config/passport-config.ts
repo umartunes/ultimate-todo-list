@@ -15,7 +15,7 @@ passport.use(new FacebookTokenStrategy({
 }, function (accessToken, refreshToken, profile: any, next) {
     let { id } = profile.id
     const query = {
-        text: 'SELECT * FROM users WHERE _id = ($1) RETURNING *',
+        text: 'SELECT * FROM users WHERE _id = ($1) ',
         values: [id]
 
     }
@@ -30,7 +30,7 @@ passport.use(new FacebookTokenStrategy({
             let randomString = Math.random().toString(36).substring(3);
 
             const queryInsert = {
-                text: 'INSERT INTO users( username, password,email,name, nickName,firstName, lastName, fbAccessToken, fbId,fbEmail,fbPhoto,fbData ) VALUES($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12) RETURNING *',
+                text: 'INSERT INTO users( username, password,email,name, nickName,firstName, lastName, fbAccessToken, fbId,fbEmail,fbPhoto,fbData ) VALUES($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12)',
                 values: [profile.id, profile.id, profile._json.email, profile._json.name, profile.name.givenName, profile._json.first_name, profile._json.last_name, accessToken, profile.id, profile._json.email, profile.photos[0].value, JSON.stringify(profile),],
             }
             client.query(queryInsert, (err, user) => {

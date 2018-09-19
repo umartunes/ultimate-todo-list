@@ -31,8 +31,8 @@ router.post('/', authRequired,   function (req: any, res: any) {
         return res.send(res.t)
     }
     const queryInsert = {
-        text: 'INSERT INTO todos( title, place, description, status) VALUES($1, $2, $3, $4) RETURNING *',
-        values: [ req.body.title, req.body.place, req.body.description, req.body.status],
+        text: 'INSERT INTO todos( title, place, description, status, authorID) VALUES($1, $2, $3, $4, $5) RETURNING *',
+        values: [ req.body.title, req.body.place, req.body.description, req.body.status, req.user._id],
     }
     client.query(queryInsert, (err, todo: any) => {
         res.send(err ? err : todo)
