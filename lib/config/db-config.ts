@@ -1,9 +1,20 @@
+const connectionString = 'postgresql://teamLamda:teamLamda@localhost:5432/todo-work'
+import {Pool} from 'pg';
 
-import * as mongoose from 'mongoose';
 
-var db_url = process.env.DB_URL || 'mongodb://localhost:27017/ultimate-todo'
-mongoose.set('useFindAndModify', false)
-mongoose.connect(db_url, { useNewUrlParser: true })
-var db = mongoose.connection;
-db.on('error', console.error.bind(console, 'DB connection error:'));
-db.once('open', function () { console.log('Successfully connected to DB') });
+//connection with sql
+
+const client = new Pool({
+    connectionString: connectionString,
+  })
+  client.connect((err)=>{
+      if(err){
+          console.log(err);
+      }
+      else{
+          console.log(" DataBase Has been Successfully Connected!");
+      }
+  });
+  
+//export
+export default client;

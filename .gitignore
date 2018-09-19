@@ -2,6 +2,7 @@
 
 # dependencies
 /node_modules
+/path
 /uploads/*
 # exception to the rule
 !/uploads/.gitkeep 
