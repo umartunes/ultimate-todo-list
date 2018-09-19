@@ -13,30 +13,40 @@ passport.use(new FacebookTokenStrategy({
     clientSecret: clientSecret
 
 }, function (accessToken, refreshToken, profile: any, next) {
+
+    console.log(profile.id)
+    console.log(profile)
+
     let { id } = profile.id
     const query = {
-        text: 'SELECT * FROM users WHERE _id = ($1) ',
-        values: [id]
+        text: 'SELECT * FROM users WHERE fbid = ($1)',
+        values: [profile.id]
 
     }
     client.query(query, (err, user: any) => {
-        if (err) { return next(err) }
-        if (user) {
+        if (err) { 
+            return next(err) 
+        }
+        if (user.rowCount !== 0) {
+            console.log(user. rows[0])
+            console.log("reached at stage 2")
 
-            next(null, user)
+            next(null, user.rows[0])
         }
         else {
+            console.log("reached at stage 3")
 
             let randomString = Math.random().toString(36).substring(3);
 
             const queryInsert = {
-                text: 'INSERT INTO users( username, password,email,name, nickName,firstName, lastName, fbAccessToken, fbId,fbEmail,fbPhoto,fbData ) VALUES($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12)',
+                text: 'INSERT INTO users( username, password,email,name, nickname,firstname, lastname, fbaccesstoken, fbid,fbemail,fbphoto,fbdata ) VALUES($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12)',
                 values: [profile.id, profile.id, profile._json.email, profile._json.name, profile.name.givenName, profile._json.first_name, profile._json.last_name, accessToken, profile.id, profile._json.email, profile.photos[0].value, JSON.stringify(profile),],
             }
             client.query(queryInsert, (err, user) => {
                 if (err) { return next(err) }
 
-                next( null, user )
+                console.log(user.rows[0])
+                next( null, user.rows[0] )
               })
         }
     })
@@ -85,12 +95,16 @@ passport.use(new FacebookTokenStrategy({
 ))
 
 passport.serializeUser<any, any>((user, next) => {
+console.log("at stage 4")
+    console.log(user)
 
     next(null, user._id)
 
 })
 
 passport.deserializeUser((userId, next) => {
+console.log('at stage 5')
+    console.log(userId)
 
     // Users.findById( userId, 'username, email, registered, name, nickName, fbId, fbPhoto' )
     //     .exec( function (err, user) {
@@ -99,7 +113,7 @@ passport.deserializeUser((userId, next) => {
     //     return next(null, user);
     // })
     const queryOneTodo = {
-        text: 'SELECT * FROM users WHERE _id = ($1) RETURNING *',
+        text: 'SELECT * FROM users WHERE _id = ($1) ',
         values: [userId]
 
     }

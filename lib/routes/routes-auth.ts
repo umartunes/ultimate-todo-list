@@ -39,6 +39,8 @@ router.post('/login', passport.authenticate('local'), function (req, res) {
 
 router.post('/facebookAuthToken', passport.authenticate('facebook-token'), function (req, res) {
     
+    console.log("Ending...")
+
     res.send({ auth: true, success: true, user: req.user, message: "Successfully logged in",  })
 
 })

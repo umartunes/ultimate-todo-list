@@ -2,10 +2,9 @@ import * as express from 'express'
 import * as path from 'path'
 
 import * as bodyParser from 'body-parser'
-import * as mongoose from 'mongoose'
+import * as cookieparser  from 'cookie-parser';
 import * as cors from 'cors'
 import * as expressSession from 'express-session'
-import * as connectMonogo from 'connect-mongo'
 import * as passport from 'passport'
 
 //Import Routes
@@ -35,14 +34,13 @@ server.use(bodyParser.urlencoded({ extended: true }))
 server.use(bodyParser.json())
 
 //Session and Passport management
-const MongoStore = connectMonogo(expressSession);
+
 server.use(expressSession({
-    store: new MongoStore({ mongooseConnection: mongoose.connection }),
     secret: 'hashingString',
     saveUninitialized: false,
     resave: false
 }));
-
+server.use(cookieparser());
 require('./config/passport-config') // All strategies of passport are available here, put this file before passport initialization
 server.use(passport.initialize())
 server.use(passport.session())
