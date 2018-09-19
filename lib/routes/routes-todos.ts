@@ -44,7 +44,18 @@ router.post('/',authRequired, function (req : any, res : any) {
     });
 
     todo.save(function (err, todo) {
-        res.send(err ? err : todo)
+
+        if (!todo) {
+            res.t.message = "Todo not available"
+            return res.send(res.t)
+        }
+
+        res.t.success = true
+        res.t.message = "Todo Found"
+        res.t.data = todo
+
+        return res.send(res.t)
+        
     })
 
 })
