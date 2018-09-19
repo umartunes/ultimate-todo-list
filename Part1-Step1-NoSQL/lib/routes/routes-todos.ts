@@ -1,4 +1,4 @@
-import * as express from 'express'
+import express = require('express');
 var router = express.Router()
 
 import Todos from '../models/model-todos'
