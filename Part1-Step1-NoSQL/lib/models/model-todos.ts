@@ -1,4 +1,4 @@
-import * as mongoose from 'mongoose'
+import mongoose = require('mongoose');
 
 const Schema = mongoose.Schema;
 

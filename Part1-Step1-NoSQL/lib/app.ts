@@ -2,6 +2,9 @@ import express = require('express');
 
 import * as bodyParser from 'body-parser'
 
+//Importing Routes
+import todosRouter from './routes/routes-todos'
+
 
 //Importing MiddleWares
 import responseTemplate from './middlewares/response-template'
@@ -19,6 +22,8 @@ server.use(bodyParser.json())
 //Use Custom Middleware to get response template in all api routes
 server.use( responseTemplate )
 
+//Setting up routes
+server.use('/api/todos', todosRouter)
 
 server.get('/', (req, res: any) => {
     res.status(200).send("Root / Working...")
