@@ -10,7 +10,7 @@
     "dev": "ts-node ./lib/server.ts",
     "tsc": "tsc",
     "nodemon": "nodemon",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "jest --forceExit --coverage --verbose"
   },
   "author": "Muhammad Umar Ahmad",
   "license": "ISC",
