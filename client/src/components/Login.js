@@ -49,7 +49,6 @@ class Login extends Component {
     render() {
         return (
             <Fragment>
-                <header></header>
                 <main className="loginRoute">
                     <div className="purple darken-1">
                         <div className="container">
@@ -91,7 +90,6 @@ class Login extends Component {
                         </div>
                     </div>
                 </main>
-                <footer></footer>
             </Fragment>
         )
     }

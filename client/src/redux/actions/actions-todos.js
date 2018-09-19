@@ -35,11 +35,11 @@ export const setTodos = todos => {
     }
 }
 
-export const pushTodos = todos => {
+export const pushTodos = todo => {
 
     return {
         type: 'PUSH_TODOS',
-        payload: { todos }
+        payload: { todo }
     }
 }
 
@@ -50,40 +50,62 @@ export const unshiftTodos = todos => {
         payload: { todos }
     }
 }
+export const deleteTodo = title => {
 
-export const fetch = (params) => {
-
-    params = params || {}
-
-    return (dispatch, getState) => {
-
-        dispatch(setLoading())
-
-        axios.get(window.baseURL + `/api/todos/`, { params: params })
-            .then(response => response.data)
-            .then(todos => dispatch(set(todos)))
-            .catch(error => dispatch(setError(error)))
-
+    return {
+        type: 'DELETE_TODO',
+        payload: { title }
     }
-
+}
+export const editTodo = (todo) => {
+    return {
+        type: 'EDIT_TODO',
+        payload: { todo }
+    }
 }
 
-export const fetchSingle = (_id) => {
-
-    return (dispatch, getState) => {
-
-        dispatch(setLoading())
-
-        axios.get(window.baseURL + `/api/ads/${_id}/`)
-            .then(response => response.data)
-            .then(todo => dispatch(setCurrentAd(todo)))
-            .catch(error => dispatch(setError(error)))
-
+export const editStatus = (title) => {
+    return {
+        type: 'EDIT_STATUS',
+        payload: { title }
     }
-
 }
 
-export const postTodo = (formData, onSuccess, onFailure) => {
+
+
+// export const fetch = (params) => {
+
+//     params = params || {}
+
+//     return (dispatch, getState) => {
+
+//         dispatch(setLoading())
+
+//         axios.get(window.baseURL + `/api/todos/`, { params: params })
+//             .then(response => response.data)
+//             .then(todos => dispatch(set(todos)))
+//             .catch(error => dispatch(setError(error)))
+
+//     }
+
+// }
+
+// export const fetchSingle = (_id) => {
+
+//     return (dispatch, getState) => {
+
+//         dispatch(setLoading())
+
+//         axios.get(window.baseURL + `/api/ads/${_id}/`)
+//             .then(response => response.data)
+//             .then(todo => dispatch(setCurrentAd(todo)))
+//             .catch(error => dispatch(setError(error)))
+
+//     }
+
+// }
+
+export const postTodo = (formData) => {
 
     // let config = {
     //     headers: { 'Content-Type': 'multipart/form-data' },
@@ -91,13 +113,16 @@ export const postTodo = (formData, onSuccess, onFailure) => {
     //     //     var percentCompleted = Math.round((progressEvent.loaded * 100) / progressEvent.total);
     //     // }
     // };
-
+console.log("state data",formData)
     return (dispatch, getState) => {
-        
-        axios.post(window.baseURL + `/api/todos/`, formData, config )
+
+        axios.post(window.baseURL + `/api/todos/`, formData, )
             .then(response => response.data)
-            .then(data => { onSuccess(data) })
-            .catch(error => { onFailure(error) })
+            .then(data => {
+                console.log("server saved data",data)
+
+            })
+            .catch(error => { console.log("errror form server ",error) })
 
     }
 

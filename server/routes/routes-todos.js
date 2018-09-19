@@ -20,6 +20,7 @@ router.get('/', auth_required_1.default, (req, res) => {
 router.post('/', auth_required_1.default, function (req, res) {
     // console.log(req.body)
     // console.log(req.body.moreInfo)
+  
     if (!req.body.title || !req.body.place || !req.body.description) {
         res.t.message = "Invalid Request";
         return res.send(res.t);
