@@ -1,7 +1,11 @@
 import React, { Component, Fragment } from 'react'
 import { Switch, Route } from 'react-router-dom'
+// import PrivateRoute from './privateRoute'
+// import Login from './Login'
+import AddTodoPage from './AddTodoPage';
+import Dashboard from './Dashboard';
+import EditTodoPage from './EditTodoPage';
 
-import Login from './Login'
 
 class Routes extends Component {
 
@@ -9,7 +13,9 @@ class Routes extends Component {
 		return (
 			<Fragment>
 				<Switch>
-					<Route path="/" component={Login} />
+					<Route  exact={true} path="/" component={Dashboard} />
+					<Route exact={true} path="/create" component={AddTodoPage }/>
+					<Route exact={true} path="/edit/:id" component={EditTodoPage }/>
 				</Switch>
 			</Fragment>
 		)
