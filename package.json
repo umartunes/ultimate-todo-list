@@ -25,9 +25,11 @@
     "passport": "^0.4.0",
     "passport-facebook-token": "^3.3.0",
     "passport-local": "^1.0.0",
-    "path": "^0.12.7"
+    "path": "^0.12.7",
+    "pg": "^7.4.3"
   },
   "devDependencies": {
+    "@types/pg": "^7.4.10",
     "@types/connect-mongo": "0.0.39",
     "@types/cors": "^2.8.4",
     "@types/express-session": "^1.15.11",
@@ -36,6 +38,7 @@
     "@types/node": "^10.9.4",
     "@types/passport": "^0.4.6",
     "@types/passport-facebook-token": "^0.4.33",
+    "nodemon": "^1.18.4",
     "ts-node": "^7.0.1",
     "typescript": "^3.0.3"
   }
