@@ -61,7 +61,7 @@ class SideNave extends React.Component {
                             Tasks</Link>
                     </li>
                 </ul>
-                <a href="/" data-target="slide-out" className="sidenav-trigger">
+                <a href="/" data-target="slide-out" className="sidenav-trigger" >
                 <FontAwesomeIcon icon="bars" size="1x" className="white-text" />
                 </a>
 

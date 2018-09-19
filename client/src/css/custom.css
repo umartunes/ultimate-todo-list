@@ -96,9 +96,9 @@ header, main, footer {
 /* Starting of To-Do Page */
 
 #to-do_main{
-    margin-top: 30px;
+    /* margin-top: 30px; */
     background: #46529D;
-    padding-bottom: 6%;
+    /* padding-bottom: 6%; */
  
 
 }
