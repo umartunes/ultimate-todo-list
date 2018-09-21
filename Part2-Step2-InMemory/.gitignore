@@ -5,7 +5,7 @@
 /src/components
 #/src/redux
 /src/redux/reducers
-/src/tests
+/src/tests/abc
 
 # testing
 /coverage
