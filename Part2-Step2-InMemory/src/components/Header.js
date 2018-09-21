@@ -4,8 +4,7 @@ import React from 'react';
 const Header = () => (
     <React.Fragment>
         <header>
-            <h4 className="white-text marginZero" style={{ position: " relative", top: "60%", textIndent: "15px" }}>My Day</h4>
-            <h6 id="today" className="white-text" style={{ position: "relative", top: "57%", textIndent: "15px" }}>Today</h6>
+            <h4 className="white-text marginZero" style={{ position: " relative", top: "75%", textIndent: "8px" }}>The Ultimate To-Do</h4>
         </header>
     </React.Fragment>
 )

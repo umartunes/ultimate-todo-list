@@ -1,5 +1,11 @@
+let todoItem = {
+    _id: "5",
+    title: "New ToDo",
+    description: "description",
+    status: 'pending'
+};
 const initialState = {
-    todos: [],
+    todos: [todoItem],
     error: null,
     isLoading: false
 }

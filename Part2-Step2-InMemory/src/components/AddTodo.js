@@ -4,8 +4,7 @@ import { connect } from 'react-redux'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import SideNave from './SideNave'
 import { Link } from 'react-router-dom'
-// import { postTodo } from '../redux/actions/actions-todos'
-// import ShowTodo from './showTodo'
+import { pushTodos } from '../redux/actions/actions-todos'
 
 class AddTodo extends React.Component {
 
@@ -13,32 +12,39 @@ class AddTodo extends React.Component {
         title: '',
         place: '',
         description: '',
-
     }
 
     onchange = (event) => {
 
         event.preventDefault();
 
-        this.setState({ [event.target.name]: event.target.value })
-
-
+        this.setState({ [event.target.name]: event.target.value.trim() })
 
     }
+    
     addTodoFn = (event) => {
 
         event.preventDefault();
 
+        let { title, description, place } = this.state
 
-        // this.props.postTodo(this.state)
+        if( title === '' || description === '' || place === '' ){
+            window.notify("Please fill in all the fields", 'error')
+            return
+        }
 
+        let todoItem = {
+            _id: Math.random().toString(36).slice(2),
+            title: title,
+            description: description,
+            place: place,
+            status: 'pending'
+        };
+        this.props.dispatch(pushTodos(todoItem))
+        this.props.history.push('/')
         this.setState({ title: '', description: '', place: '' })
 
-
     }
-
-
-
 
     render() {
 
@@ -106,8 +112,7 @@ class AddTodo extends React.Component {
                     <div className="row">
                         <div className="container">
                             <div className="col s12">
-                                <button onClick={this.addTodoFn} className="btn waves-effect waves-lighten hoverable sky-blue" style={{ width: '100%' }}>add
-                        your thing</button>
+                                <button onClick={this.addTodoFn} className="btn waves-effect waves-lighten hoverable sky-blue" style={{ width: '100%' }}>Add Todo</button>
                             </div>
                         </div>
                     </div>
@@ -119,13 +124,6 @@ class AddTodo extends React.Component {
 
 }
 
-const getTodoList = (state) => {
 
-    return {
-        todo: state
-    }
-}
-
-export default connect(getTodoList)(AddTodo);
-// export default connect(getTodoList, { postTodo })(AddTodo);
+export default connect()(AddTodo);
 
