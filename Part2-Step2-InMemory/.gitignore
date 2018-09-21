@@ -3,7 +3,9 @@
 # dependencies
 /node_modules
 /src/components
-/src/redux
+#/src/redux
+/src/redux/reducers
+/src/tests
 
 # testing
 /coverage
