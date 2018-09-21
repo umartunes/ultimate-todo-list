@@ -1,0 +1,170 @@
+.loginRoute{
+	min-height: 100vh;
+	box-sizing: border-box;
+	padding-left: 0 !important;
+}
+
+.loginRoute .container{
+	max-width: 450px;
+}
+
+.loginRoute .flexBox{
+	padding: 40px 0;
+	min-height: 100vh;
+	box-sizing: border-box;
+}
+
+
+/* copy here  */
+
+body{
+    font-family: raleway;
+}
+
+.sky-blue{
+    background-color: #2EBAEE !important;
+}
+
+.text-sky-blue{
+    color: #2EBAEE !important;
+}
+
+.dark-blue{
+    background-color: #46529D !important;
+}
+
+.text-dark-blue{
+    color: #46529D !important;
+}
+
+.marginZero{
+    margin: 0 !important;
+}
+
+.active{
+    font-weight: bold !important;
+}
+
+.fs-26{
+    font-size: 26px !important;
+}
+
+.fs-32{
+    font-size: 32px !important;
+}
+
+header{
+    height: 180px;
+    background-image: url('../images/bg-mountain.jpg');
+    background-position: center;
+    background-size: cover;
+}
+
+.sidenav{
+    padding: 10px !important;
+}
+
+.sidenav > p{
+    margin: 0;
+    font-size: 14px;
+}
+
+.sidenav-trigger, .backButton{
+    z-index: 1;
+    position: absolute;
+}
+
+.sidenav-trigger{
+    top: 12px;
+    left: 3%;
+}
+
+.sidenav-trigger:hover{
+    background-color: #46529D;
+}
+
+header, main, footer {
+    padding-left: 300px;
+}
+
+@media only screen and (max-width : 992px) {
+    header, main, footer {
+        padding-left: 0;
+    }
+}
+
+/* Starting of To-Do Page */
+
+#to-do_main{
+    padding-top: 30px;
+    background: #46529D;
+    padding-bottom: 6%;
+}
+
+.backButton{
+    top: 10px;
+    left: 10%;
+}
+
+.input-field .prefix.active {
+    color: #fff;
+}
+
+.sidenav-font{
+    font-size: 18px;
+}
+
+.taskListBorder{
+    padding-top: 25px;
+     padding-left: 10px;
+      padding-right: 0px;
+       padding-bottom: 15px;
+    border-left:2px solid blue;
+}
+
+/* label color */
+.input-field label {
+	color: #fff;
+}
+
+/* label focus color */
+.input-field input[type=text]:focus + label {
+	color: #fff;
+}
+
+/* label underline focus color */
+.input-field input[type=text]:focus {
+	border-bottom: 1px solid #fff;
+	box-shadow: 0 1px 0 0 #fff;
+}
+
+/* valid color */
+.input-field input[type=text].valid {
+	border-bottom: 1px solid #fff;
+	box-shadow: 0 1px 0 0 #fff;
+}
+
+/* invalid color */
+.input-field input[type=text].invalid {
+	border-bottom: 1px solid #fff;
+	box-shadow: 0 1px 0 0 #fff;
+}
+
+/* icon prefix focus color */
+.input-field .prefix.active {
+	color: #fff;
+}
+
+input[type=text]:not(.browser-default):focus:not([readonly]) {
+    border-bottom: 1px solid #fff;
+    -webkit-box-shadow: 0 1px 0 0 #fff;
+    box-shadow: 0 1px 0 0 #fff;
+}
+
+.relative{
+    position: relative;
+}
+
+.cursor-setting{
+    cursor:pointer;
+}
