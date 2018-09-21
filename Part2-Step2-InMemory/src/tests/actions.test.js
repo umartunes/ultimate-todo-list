@@ -11,8 +11,9 @@ describe("Todos Actions", () => {
 	});
 
 	it("Adds a new TODO", () => {
+
 		const result = pushTodos({
-			id: "123",
+			_id: "123",
 			title: "Title",
 			description: "description",
 			status: 'pending'
@@ -21,7 +22,7 @@ describe("Todos Actions", () => {
 			type: 'PUSH_TODOS',
 			payload: {
 				todo: {
-					id: "123",
+					_id: "123",
 					title: "Title",
 					description: "description",
 					status: 'pending'
@@ -32,10 +33,10 @@ describe("Todos Actions", () => {
 
 
 	it("Deletes TODO", () => {
-		const result = deleteTodo(12);
+		const result = deleteTodo("12");
 		expect(result).toEqual({
 			type: 'DELETE_TODO',
-			payload: { id: 12 }
+			payload: { _id: "12" }
 		});
 	});
 

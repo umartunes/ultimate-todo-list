@@ -13,17 +13,17 @@ export const pushTodos = todo => {
     }
 }
 
-export const deleteTodo = id => {
+export const deleteTodo = _id => {
 
     return {
         type: 'DELETE_TODO',
-        payload: { id }
+        payload: { _id }
     }
 }
 
-export const editStatus = (title) => {
+export const editStatus = (_id) => {
     return {
         type: 'EDIT_STATUS',
-        payload: { title }
+        payload: { _id }
     }
 }
