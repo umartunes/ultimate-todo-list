@@ -25,7 +25,7 @@ const todosReducer = (state = initialState, action) => {
             return Object.assign({}, state, {
                 todos: state.todos.map(todo => {
                     if( todo._id === action.payload._id )
-                        todo.status = todo.status != 'completed' ? 'completed' : 'pending'
+                        todo.status = todo.status !== 'completed' ? 'completed' : 'pending'
 
                     return todo
                 })
