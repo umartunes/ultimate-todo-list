@@ -41,10 +41,10 @@ describe("Todos Actions", () => {
 	});
 
 	it("Changes status of todo", () => {
-		const result = editStatus("Completed");
+		const result = editStatus("12");
 		expect(result).toEqual({
 			type: 'EDIT_STATUS',
-			payload: { title: "Completed" }
+			payload: { _id: "12" }
 		});
 	});
 
