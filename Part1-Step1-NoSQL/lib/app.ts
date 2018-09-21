@@ -1,6 +1,5 @@
 import express = require('express');
-
-import * as bodyParser from 'body-parser'
+import bodyParser = require('body-parser')
 
 //Importing Routes
 import todosRouter from './routes/routes-todos'

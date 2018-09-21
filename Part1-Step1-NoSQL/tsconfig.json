@@ -6,7 +6,8 @@
       "sourceMap": true,
       "target": "es6",
       "outDir": "./server",
-      "baseUrl": "./lib"
+      "baseUrl": "./lib",
+      "allowSyntheticDefaultImports": true
     },
     "include": ["lib/**/*.ts"],
     "exclude": ["node_modules"]
