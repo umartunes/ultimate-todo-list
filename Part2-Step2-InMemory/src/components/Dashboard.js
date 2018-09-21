@@ -1,5 +1,5 @@
 import React from 'react';
-import SideNave from './SideNave';
+import SideNav from './SideNav';
 import Header from './Header';
 import Section from './Section';
 
@@ -7,7 +7,7 @@ class Dashoard extends React.Component {
     render() {
         return (
             <React.Fragment>
-                <SideNave />
+                <SideNav />
                 <Header />
                 <Section />
             </React.Fragment>

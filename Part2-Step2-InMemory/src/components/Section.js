@@ -40,7 +40,7 @@ class Section extends React.Component {
             <React.Fragment>
 
                 <main style={{ margin: 10 }} >
-                    {this.props.todos ? this.loopItems() : <p>There are no tasks in your list</p>}
+                    {this.props.todos.length ? this.loopItems() : <p>There are no tasks in your list</p>}
                 </main>
 
                 {/* <!-- Fixed Floating Action Button --> */}

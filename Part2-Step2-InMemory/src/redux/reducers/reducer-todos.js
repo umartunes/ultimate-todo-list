@@ -5,7 +5,7 @@ let todoItem = {
     status: 'pending'
 };
 const initialState = {
-    todos: [todoItem],
+    todos: [],
     error: null,
     isLoading: false
 }

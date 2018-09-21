@@ -2,7 +2,7 @@ import React from 'react';
 
 import { connect } from 'react-redux'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import SideNave from './SideNave'
+import SideNav from './SideNav'
 import { Link } from 'react-router-dom'
 import { pushTodos } from '../redux/actions/actions-todos'
 
@@ -50,7 +50,7 @@ class AddTodo extends React.Component {
 
         return (
             <React.Fragment>
-                <SideNave />
+                <SideNav />
 
 
                 <main id="to-do_main">
