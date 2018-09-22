@@ -38,3 +38,23 @@ describe("GET Onetodo test", () => {
   });
 });
 
+
+//test post signup req in user route
+describe('Put /tasks restful Api', function() {
+  it('responds with json', function(done) {
+    request(server)
+      .put('/api/todos/5')
+      .send(
+          {
+            title: "test put route",
+            description: "at 1pm",
+            place: "e lab put route",
+        })
+      .expect(200)
+      .end(function(err, res) {
+        if (err) return done(err);
+        done();
+      });
+  });
+});
+

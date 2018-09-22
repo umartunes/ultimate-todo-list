@@ -68,6 +68,33 @@ router.get('/:id',  function (req, res: any) {
     })
 })
 
+// Update Todos 
+router.put('/:id', function (req: any, res: any) {
+
+    if (!req.body.title || !req.body.place || !req.body.description) {
+        res.t.message = "Invalid Request"
+        return res.status(203).send(res.t)
+    }
+    let { id }: any = req.params;
+    let { title, place, description, status }: any = req.body;
+    const queryUpdate = {
+        text: 'UPDATE todos SET title= ($1), place=($2), description =($3), status=($4)  WHERE _id = ($5) ',
+        values: [title, place, description, status, id],
+    }
+    client.query(queryUpdate, (err: any, todo: any) => {
+        if (!todo) {
+            res.t.message = "Todo not available"
+            return res.send(res.t)
+        }
+        res.t.success = true
+        res.t.message = "Todo Found"
+        res.t.data = todo
+        return res.send(res.t)
+
+    })
+
+})
+
 
 
 
