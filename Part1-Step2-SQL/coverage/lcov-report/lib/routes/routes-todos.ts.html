@@ -20,28 +20,28 @@
     </h1>
     <div class='clearfix'>
       <div class='fl pad1y space-right2'>
-        <span class="strong">85.71% </span>
+        <span class="strong">76.92% </span>
         <span class="quiet">Statements</span>
-        <span class='fraction'>12/14</span>
+        <span class='fraction'>20/26</span>
       </div>
       <div class='fl pad1y space-right2'>
-        <span class="strong">75% </span>
+        <span class="strong">76.92% </span>
         <span class="quiet">Branches</span>
-        <span class='fraction'>3/4</span>
+        <span class='fraction'>10/13</span>
       </div>
       <div class='fl pad1y space-right2'>
         <span class="strong">100% </span>
         <span class="quiet">Functions</span>
-        <span class='fraction'>2/2</span>
+        <span class='fraction'>4/4</span>
       </div>
       <div class='fl pad1y space-right2'>
-        <span class="strong">85.71% </span>
+        <span class="strong">76.92% </span>
         <span class="quiet">Lines</span>
-        <span class='fraction'>12/14</span>
+        <span class='fraction'>20/26</span>
       </div>
     </div>
   </div>
-  <div class='status-line high'></div>
+  <div class='status-line medium'></div>
 <pre><table class="coverage">
 <tr><td class="line-count quiet">1
 2
@@ -66,7 +66,34 @@
 21
 22
 23
-24</td><td class="line-coverage quiet"><span class="cline-any cline-yes">1x</span>
+24
+25
+26
+27
+28
+29
+30
+31
+32
+33
+34
+35
+36
+37
+38
+39
+40
+41
+42
+43
+44
+45
+46
+47
+48
+49
+50
+51</td><td class="line-coverage quiet"><span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -78,6 +105,33 @@
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">1x</span>
@@ -103,13 +157,40 @@ router.get('/', (req, res : any) =&gt; {
         res.t.success = true
         res.t.message = "Todos Found"
         res.t.data = todos.rows
-        console.log(err, todos)
+        // console.log(err, todos)
         
         return res.status(200).send(res.t)
         
     })
 &nbsp;
 })
+&nbsp;
+// insert todos
+router.post('/',   function (req: any, res: any) {
+&nbsp;
+    <span class="missing-if-branch" title="if path not taken" >I</span>if (!req.body.title || !req.body.place || !req.body.description) {
+<span class="cstat-no" title="statement not covered" >        res.t.message = "Invalid Request"</span>
+<span class="cstat-no" title="statement not covered" >        return res.status(203).send(res.t)</span>
+    }
+    const queryInsert = {
+        text: 'INSERT INTO todos( title, place, description, status) VALUES($1, $2, $3, $4) RETURNING *',
+        values: [ req.body.title, req.body.place, req.body.description, req.body.status, ],
+    }
+    client.query(queryInsert, (err, todos: any) =&gt; {
+&nbsp;
+        <span class="missing-if-branch" title="if path not taken" >I</span>if (!todos || !todos.rows.length) {
+<span class="cstat-no" title="statement not covered" >            res.t.message = "No Todos available"</span>
+<span class="cstat-no" title="statement not covered" >            return res.status(200).send(res.t)</span>
+        }
+        res.t.success = true
+        res.t.message = "Todos Found"
+        res.t.data = todos.rows
+&nbsp;
+        res.status(200).send(res.t)
+    })
+&nbsp;
+})
+&nbsp;
 &nbsp;
 &nbsp;
 export default router</pre></td></tr>
@@ -118,7 +199,7 @@ export default router</pre></td></tr>
 </div><!-- /wrapper -->
 <div class='footer quiet pad2 space-top1 center small'>
   Code coverage
-  generated by <a href="https://istanbul.js.org/" target="_blank">istanbul</a> at Sat Sep 22 2018 12:18:22 GMT+0500 (Pakistan Standard Time)
+  generated by <a href="https://istanbul.js.org/" target="_blank">istanbul</a> at Sat Sep 22 2018 12:43:15 GMT+0500 (Pakistan Standard Time)
 </div>
 </div>
 <script src="..\..\prettify.js"></script>

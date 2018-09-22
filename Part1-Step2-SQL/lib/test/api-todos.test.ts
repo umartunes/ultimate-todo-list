@@ -9,4 +9,24 @@ describe("GET todos test", () => {
       .expect(200);
   });
 });
+//Test either todos insert in post-gre-sql
+
+describe('POST /task restful Api', function() {
+  it('responds with json', function(done) {
+    request(server)
+      .post('/api/todos/')
+      .send(
+          {
+            title: "test for inserting",
+            place: "e lab",
+            description: "at 11 Pm!"
+            
+        })
+      .expect(200)
+      .end(function(err, res) {
+        if (err) return done(err);
+        done();
+      });
+  });
+});
 
