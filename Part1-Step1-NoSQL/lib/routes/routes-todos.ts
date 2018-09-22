@@ -110,6 +110,28 @@ router.put('/:id', function (req : any, res : any) {
 
 })
 
+//Delete Todo
+router.delete('/:id', function (req:any, res : any) {
+
+    let { id } : any = req.params;
+
+    Todos.findByIdAndRemove(id).exec(function (err : any, todo : any) {
+
+        if (!todo) {
+            res.t.message = "Todo not available"
+            return res.send(res.t)
+        }
+
+        res.t.success = true
+        res.t.message = "Todo Deleted"
+        res.t.data = todo
+
+        return res.send(res.t)
+
+    })
+
+})
+
 
 
 
