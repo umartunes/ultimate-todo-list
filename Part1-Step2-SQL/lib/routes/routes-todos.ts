@@ -2,9 +2,14 @@ import express = require('express');
 var router = express.Router()
 import client from '../config/db-config'
 
-router.get('/', (req, res : any) => {
+// get todos from post-grey-sql
+router.get('/', (req, res: any) => {
 
     client.query('SELECT * FROM todos', (err, todos: any) => {
+        if (err) {
+            res.t.message = "Some error occured";
+            return res.status(500).send(res.t)
+        }
         if (!todos || !todos.rows.length) {
             res.t.message = "No Todos available"
             return res.status(200).send(res.t)
@@ -12,16 +17,14 @@ router.get('/', (req, res : any) => {
         res.t.success = true
         res.t.message = "Todos Found"
         res.t.data = todos.rows
-        // console.log(err, todos)
-        
         return res.status(200).send(res.t)
-        
+
     })
 
 })
 
-// insert todos
-router.post('/',   function (req: any, res: any) {
+// insert todos in post-grey-sql
+router.post('/', function (req: any, res: any) {
 
     if (!req.body.title || !req.body.place || !req.body.description) {
         res.t.message = "Invalid Request"
@@ -29,25 +32,27 @@ router.post('/',   function (req: any, res: any) {
     }
     const queryInsert = {
         text: 'INSERT INTO todos( title, place, description, status) VALUES($1, $2, $3, $4) RETURNING *',
-        values: [ req.body.title, req.body.place, req.body.description, req.body.status, ],
+        values: [req.body.title, req.body.place, req.body.description, req.body.status,],
     }
     client.query(queryInsert, (err, todos: any) => {
-
+        if (err) {
+            res.t.message = "Some error occured";
+            return res.status(500).send(res.t)
+        }
         if (!todos || !todos.rows.length) {
             res.t.message = "No Todos available"
-            return res.status(200).send(res.t)
+            return res.status(203).send(res.t)
         }
         res.t.success = true
         res.t.message = "Todos Found"
         res.t.data = todos.rows
-
         res.status(200).send(res.t)
     })
 
 });
 
-// get one TODO
-router.get('/:id',  function (req, res: any) {
+// get one TODO from Post-gre-sql
+router.get('/:id', function (req, res: any) {
 
     let { id } = req.params
     const queryOneTodo = {
@@ -57,18 +62,22 @@ router.get('/:id',  function (req, res: any) {
     }
 
     client.query(queryOneTodo, (err, todos: any) => {
+        if (err) {
+            res.t.message = "Some error occured";
+            return res.status(500).send(res.t)
+        }
         if (!todos || !todos.rows.length) {
             res.t.message = "No Todos available"
-            return res.send(res.t)
+            return res.status(200).send(res.t)
         }
         res.t.success = true
         res.t.message = "Todos Found"
         res.t.data = todos.rows
-        return res.send(res.t)
+        return res.status(200).send(res.t)
     })
 })
 
-// Update Todos 
+// Update Todos in post-gre-sql
 router.put('/:id', function (req: any, res: any) {
 
     if (!req.body.title || !req.body.place || !req.body.description) {
@@ -82,6 +91,10 @@ router.put('/:id', function (req: any, res: any) {
         values: [title, place, description, status, id],
     }
     client.query(queryUpdate, (err: any, todo: any) => {
+        if (err) {
+            res.t.message = "Some error occured";
+            return res.status(500).send(res.t)
+        }
         if (!todo) {
             res.t.message = "Todo not available"
             return res.send(res.t)
@@ -90,19 +103,22 @@ router.put('/:id', function (req: any, res: any) {
         res.t.message = "Todo Found"
         res.t.data = todo
         return res.send(res.t)
-
     })
 
 })
 
-//Delete Todo
-router.delete('/:id',  function (req: any, res: any) {
+//Delete Todo from post-gre-sql
+router.delete('/:id', function (req: any, res: any) {
     let { id }: any = req.params;
     const queryDelete = {
         text: 'DELETE FROM todos  WHERE _id = ($1) RETURNING *',
         values: [id]
     }
     client.query(queryDelete, (err: any, todo: any) => {
+        if (err) {
+            res.t.message = "Some error occured";
+            return res.status(500).send(res.t)
+        }
         if (!todo) {
             res.t.message = "Todo not available"
             return res.status(203).send(res.t)
@@ -113,13 +129,5 @@ router.delete('/:id',  function (req: any, res: any) {
         return res.send(res.t)
     })
 })
-
-
-
-
-
-
-
-
 
 export default router

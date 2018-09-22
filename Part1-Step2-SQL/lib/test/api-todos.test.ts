@@ -9,21 +9,20 @@ describe("GET todos test", () => {
       .expect(200);
   });
 });
-//Test either todos insert in post-gre-sql
 
-describe('POST /task restful Api', function() {
-  it('responds with json', function(done) {
+//Test either todos insert in post-gre-sql
+describe('POST /task restful Api', function () {
+  it('responds with json', function (done) {
     request(server)
       .post('/api/todos/')
       .send(
-          {
-            title: "test for inserting 3",
-            place: "e lab",
-            description: "test NO# 3"
-            
+        {
+          title: "test for inserting 3",
+          place: "e lab",
+          description: "test NO# 3"
         })
       .expect(200)
-      .end(function(err, res) {
+      .end(function (err, res) {
         if (err) return done(err);
         done();
       });
@@ -40,18 +39,18 @@ describe("GET Onetodo test", () => {
 
 
 //test Update  req in todos route
-describe('Put /tasks restful Api', function() {
-  it('responds with json', function(done) {
+describe('Put /tasks restful Api', function () {
+  it('responds with json', function (done) {
     request(server)
       .put('/api/todos/5')
       .send(
-          {
-            title: "test put route",
-            description: "at 1pm",
-            place: "e lab put route",
+        {
+          title: "test put route",
+          description: "at 1pm",
+          place: "e lab put route",
         })
       .expect(200)
-      .end(function(err, res) {
+      .end(function (err, res) {
         if (err) return done(err);
         done();
       });
