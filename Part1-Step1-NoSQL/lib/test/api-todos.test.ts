@@ -9,4 +9,11 @@ describe("GET todos list test", () => {
       .expect(200);
   });
 });
+//Test single todo are coming or not
+describe("GET single todo test", () => {
+  it("should return 200 OK if user is authenticated", () => {
+    return request(server).get("/api/todos/5ba0b338622c260b9881c58e")
+      .expect(200);
+  });
+});
 
