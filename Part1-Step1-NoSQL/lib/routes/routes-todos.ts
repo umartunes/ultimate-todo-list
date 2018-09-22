@@ -24,5 +24,28 @@ router.get('/', (req, res : any) => {
 
 })
 
+// Sigle Todo Get
+router.get('/:id', function (req, res : any) {
+
+    let { id } : any = req.params
+
+    Todos.findById(id).exec(function (err, todo:any) {
+
+        if (!todo) {
+            res.t.message = "Todo not available"
+            return res.send(res.t)
+        }
+
+        res.t.success = true
+        res.t.message = "Todo Found"
+        res.t.data = todo
+
+        return res.send(res.t)
+
+    })
+
+})
+
+
 
 export default router
