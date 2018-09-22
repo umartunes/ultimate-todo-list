@@ -58,14 +58,13 @@ router.post('/' , function (req : any, res : any) {
     }
 
     let todo = new Todos({
-        authorId: req.user._id,
         title: req.body.title.trim(),
         place: req.body.place.trim(),
         description: req.body.description.trim(),
     });
 
-    todo.save(function (err, todo:any) {
-
+    todo.save(function (err, todo) {
+        
         if (!todo) {
             res.t.message = "Todo not available"
             return res.send(res.t)
