@@ -11,7 +11,7 @@ router.get('/', (req, res : any) => {
 
         if (!todos) {
             res.t.message = "No Todos available"
-            return res.send(res.t)
+            return res.status(200).send(res.t)
         }
 
         res.t.success = true
@@ -33,14 +33,14 @@ router.get('/:id', function (req, res : any) {
 
         if (!todo) {
             res.t.message = "Todo not available"
-            return res.send(res.t)
+            return res.status(200).send(res.t)
         }
 
         res.t.success = true
         res.t.message = "Todo Found"
         res.t.data = todo
 
-        return res.send(res.t)
+        return res.status(200).send(res.t)
 
     })
 
@@ -54,7 +54,7 @@ router.post('/' , function (req : any, res : any) {
 
     if (!req.body.title || !req.body.place || !req.body.description) {
         res.t.message = "Invalid Request"
-        return res.send(res.t)
+        return res.status(203).send(res.t)
     }
 
     let todo = new Todos({
@@ -67,14 +67,14 @@ router.post('/' , function (req : any, res : any) {
         
         if (!todo) {
             res.t.message = "Todo not available"
-            return res.send(res.t)
+            return res.status(200).send(res.t)
         }
 
         res.t.success = true
         res.t.message = "Todo Added"
         res.t.data = todo
 
-        return res.send(res.t)
+        return res.status(200).send(res.t)
         
     })
 
@@ -86,7 +86,7 @@ router.put('/:id', function (req : any, res : any) {
 
     if (!req.body.title || !req.body.place || !req.body.description) {
         res.t.message = "Invalid Request"
-        return res.send(res.t)
+        return res.status(203).send(res.t)
     }
 
     let { id } : any =  req.params;
@@ -96,14 +96,14 @@ router.put('/:id', function (req : any, res : any) {
 
         if (!todo) {
             res.t.message = "Todo not available"
-            return res.send(res.t)
+            return res.status(200).send(res.t)
         }
 
         res.t.success = true
         res.t.message = "Todo Found"
         res.t.data = todo
 
-        return res.send(res.t)
+        return res.status(200).send(res.t)
 
     })
 
@@ -118,14 +118,14 @@ router.delete('/:id', function (req:any, res : any) {
 
         if (!todo) {
             res.t.message = "Todo not available"
-            return res.send(res.t)
+            return res.status(200).send(res.t)
         }
 
         res.t.success = true
         res.t.message = "Todo Deleted"
         res.t.data = todo
 
-        return res.send(res.t)
+        return res.status(200).send(res.t)
 
     })
 

@@ -25,8 +25,8 @@ describe("POST single todo test", () => {
       .send(
         {
           title: "testing",
-          palce: "Fsd",
-          discription: "at 1 Pm!"
+          place: "Fsd",
+          description: "at 1 Pm!"
         })
       .expect(200);
   });
@@ -38,8 +38,8 @@ describe("POST single todo test", () => {
         .send(
           {
             title: "testing",
-            palce: "Fsd",
-            discription: "at 1 Pm!"
+            place: "Fsd",
+            description: "at 1 Pm!"
           })
         .expect(200);
     });
