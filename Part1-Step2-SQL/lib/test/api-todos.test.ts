@@ -30,7 +30,7 @@ describe('POST /task restful Api', function() {
   });
 });
 
-//test v1.0 todo route to get a one single item
+//test todo route to get a one single todo
 describe("GET Onetodo test", () => {
   it("should return 200 OK", () => {
     return request(server).get("/api/todos/5")
@@ -39,7 +39,7 @@ describe("GET Onetodo test", () => {
 });
 
 
-//test post signup req in user route
+//test Update  req in todos route
 describe('Put /tasks restful Api', function() {
   it('responds with json', function(done) {
     request(server)
@@ -58,3 +58,10 @@ describe('Put /tasks restful Api', function() {
   });
 });
 
+//test todo delete
+describe("DELETE todo test", () => {
+  it("should return 200 OK", () => {
+    return request(server).delete("/api/todos/10")
+      .expect(200);
+  });
+});

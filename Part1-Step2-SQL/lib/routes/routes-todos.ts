@@ -95,6 +95,30 @@ router.put('/:id', function (req: any, res: any) {
 
 })
 
+//Delete Todo
+router.delete('/:id',  function (req: any, res: any) {
+    let { id }: any = req.params;
+    const queryDelete = {
+        text: 'DELETE FROM todos  WHERE _id = ($1) RETURNING *',
+        values: [id]
+    }
+    client.query(queryDelete, (err: any, todo: any) => {
+        if (!todo) {
+            res.t.message = "Todo not available"
+            return res.status(203).send(res.t)
+        }
+        res.t.success = true
+        res.t.message = "Todo Deleted"
+        res.t.data = todo
+        return res.send(res.t)
+    })
+})
+
+
+
+
+
+
 
 
 
