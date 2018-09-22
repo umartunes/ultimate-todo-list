@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<coverage generated="1537602195472" clover="3.2.0">
-  <project timestamp="1537602195472" name="All files">
-    <metrics statements="54" coveredstatements="44" conditionals="15" coveredconditionals="11" methods="8" coveredmethods="6" elements="77" coveredelements="61" complexity="0" loc="54" ncloc="54" packages="4" files="4" classes="4">
+<coverage generated="1537602596734" clover="3.2.0">
+  <project timestamp="1537602596735" name="All files">
+    <metrics statements="65" coveredstatements="53" conditionals="19" coveredconditionals="14" methods="10" coveredmethods="8" elements="94" coveredelements="75" complexity="0" loc="65" ncloc="65" packages="4" files="4" classes="4">
       <package name="lib">
         <metrics statements="16" coveredstatements="13" conditionals="0" coveredconditionals="0" methods="2" coveredmethods="0"/>
         <file name="app.ts" path="E:\Profgramming\new folder\ultimate-todo-list\Part1-Step2-SQL/lib\app.ts">
@@ -43,15 +43,15 @@
         <file name="response-template.ts" path="E:\Profgramming\new folder\ultimate-todo-list\Part1-Step2-SQL/lib\middlewares\response-template.ts">
           <metrics statements="4" coveredstatements="4" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="1"/>
           <line num="1" count="1" type="stmt"/>
-          <line num="3" count="2" type="stmt"/>
-          <line num="9" count="2" type="stmt"/>
+          <line num="3" count="3" type="stmt"/>
+          <line num="9" count="3" type="stmt"/>
           <line num="13" count="1" type="stmt"/>
         </file>
       </package>
       <package name="lib.routes">
-        <metrics statements="26" coveredstatements="20" conditionals="13" coveredconditionals="10" methods="4" coveredmethods="4"/>
+        <metrics statements="37" coveredstatements="29" conditionals="17" coveredconditionals="13" methods="6" coveredmethods="6"/>
         <file name="routes-todos.ts" path="E:\Profgramming\new folder\ultimate-todo-list\Part1-Step2-SQL/lib\routes\routes-todos.ts">
-          <metrics statements="26" coveredstatements="20" conditionals="13" coveredconditionals="10" methods="4" coveredmethods="4"/>
+          <metrics statements="37" coveredstatements="29" conditionals="17" coveredconditionals="13" methods="6" coveredmethods="6"/>
           <line num="1" count="1" type="stmt"/>
           <line num="2" count="1" type="stmt"/>
           <line num="3" count="1" type="stmt"/>
@@ -77,7 +77,18 @@
           <line num="41" count="1" type="stmt"/>
           <line num="42" count="1" type="stmt"/>
           <line num="44" count="1" type="stmt"/>
-          <line num="51" count="1" type="stmt"/>
+          <line num="50" count="1" type="stmt"/>
+          <line num="52" count="1" type="stmt"/>
+          <line num="53" count="1" type="stmt"/>
+          <line num="59" count="1" type="stmt"/>
+          <line num="60" count="1" type="cond" truecount="3" falsecount="1"/>
+          <line num="61" count="0" type="stmt"/>
+          <line num="62" count="0" type="stmt"/>
+          <line num="64" count="1" type="stmt"/>
+          <line num="65" count="1" type="stmt"/>
+          <line num="66" count="1" type="stmt"/>
+          <line num="67" count="1" type="stmt"/>
+          <line num="74" count="1" type="stmt"/>
         </file>
       </package>
     </metrics>

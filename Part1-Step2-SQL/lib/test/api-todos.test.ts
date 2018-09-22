@@ -17,9 +17,9 @@ describe('POST /task restful Api', function() {
       .post('/api/todos/')
       .send(
           {
-            title: "test for inserting",
+            title: "test for inserting 3",
             place: "e lab",
-            description: "at 11 Pm!"
+            description: "test NO# 3"
             
         })
       .expect(200)
@@ -27,6 +27,14 @@ describe('POST /task restful Api', function() {
         if (err) return done(err);
         done();
       });
+  });
+});
+
+//test v1.0 todo route to get a one single item
+describe("GET Onetodo test", () => {
+  it("should return 200 OK", () => {
+    return request(server).get("/api/todos/5")
+      .expect(200);
   });
 });
 
