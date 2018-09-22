@@ -17,3 +17,19 @@ describe("GET single todo test", () => {
   });
 });
 
+//Test insert todo are coming or not
+describe("POST single todo test", () => {
+  it("should return 200 OK if user is authenticated", () => {
+    return request(server)
+    .post("/api/todos")
+    .send(
+      {
+        title: "testing",
+        palce:"Fsd",
+        discription: "at 1 Pm!"
+    })
+      .expect(200);
+  });
+});
+
+
