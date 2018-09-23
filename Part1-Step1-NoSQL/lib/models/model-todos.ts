@@ -3,11 +3,6 @@ import mongoose = require('mongoose');
 const Schema = mongoose.Schema;
 
 var todosSchema = new Schema({
-    authorId: {
-        type: mongoose.Schema.Types.ObjectId,
-        required: true,
-        trim: true
-    },
     created: {
         type: Date,
         default: Date.now

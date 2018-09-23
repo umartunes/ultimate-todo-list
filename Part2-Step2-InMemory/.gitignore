@@ -7,12 +7,15 @@
 !/uploads/.gitkeep 
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 
 # testing
 /coverage
 
 >>>>>>> part1-step2
+=======
+>>>>>>> part1-step1
 # misc
 .DS_Store
 .env.local

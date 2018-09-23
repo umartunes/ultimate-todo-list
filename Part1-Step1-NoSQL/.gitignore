@@ -4,6 +4,7 @@
 /node_modules
 <<<<<<< HEAD
 
+<<<<<<< HEAD
 # testing
 /coverage
 =======
@@ -11,6 +12,8 @@
 # exception to the rule
 !/uploads/.gitkeep 
 >>>>>>> part1-step2
+=======
+>>>>>>> part1-step1
 
 # misc
 .DS_Store
