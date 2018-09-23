@@ -1,0 +1,131 @@
+.loginRoute{
+	min-height: 100vh;
+	box-sizing: border-box;
+	padding-left: 0 !important;
+}
+
+.loginRoute .container{
+	max-width: 450px;
+}
+
+.loginRoute .flexBox{
+	padding: 40px 0;
+	min-height: 100vh;
+	box-sizing: border-box;
+}
+
+
+/* copy here  */
+
+body{
+    font-family: raleway;
+    background-color: #eeeeee;
+}
+
+.sky-blue{
+    background-color: #2EBAEE !important;
+}
+
+.text-sky-blue{
+    color: #2EBAEE !important;
+}
+
+.dark-blue{
+    background-color: #46529D !important;
+}
+
+.text-dark-blue{
+    color: #46529D !important;
+}
+
+.marginZero{
+    margin: 0 !important;
+}
+
+.active{
+    font-weight: bold !important;
+}
+
+.fs-26{
+    font-size: 26px !important;
+}
+
+.fs-32{
+    font-size: 32px !important;
+}
+
+header{
+    height: 180px;
+    background-image: url('../images/bg-mountain.jpg');
+    background-position: center;
+    background-size: cover;
+}
+
+.sidenav{
+    padding: 10px !important;
+}
+
+.sidenav > p{
+    margin: 0;
+    font-size: 14px;
+}
+
+.sidenav-trigger, .backButton{
+    z-index: 1;
+    position: absolute;
+}
+
+.sidenav-trigger{
+    top: 12px;
+    left: 3%;
+}
+
+.sidenav-trigger:hover{
+    background-color: #46529D;
+}
+
+header, main, footer {
+    padding-left: 300px;
+}
+
+@media only screen and (max-width : 992px) {
+    header, main, footer {
+        padding-left: 0;
+    }
+}
+
+/* Starting of To-Do Page */
+
+#to-do_main{
+    /* margin-top: 30px; */
+    background: #46529D;
+    padding-top: 50px;
+    /* padding-bottom: 6%; */
+ 
+
+}
+
+
+
+.backButton{
+    top: 47px;
+    right: 5%;
+}
+
+.input-field .prefix.active {
+    color: #03a9f4;
+}
+
+.sidenav-font{
+    font-size: 18px;
+}
+
+.done{
+
+    text-decoration: line-through ;
+}
+.tod-List-Setting{
+    margin: 10px 15px;
+    height:420px;
+    overflow:auto;
+}

@@ -1,0 +1,166 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Should Render Todo Form  Correctly 1`] = `
+<Unknown>
+  <form
+    className="form"
+    onSubmit={[Function]}
+  >
+    <div
+      className="row"
+    >
+      <div
+        className="container"
+      >
+        <div
+          className="input-field col s12"
+        >
+          <FontAwesomeIcon
+            border={false}
+            className="prefix white-text"
+            fixedWidth={false}
+            flip={null}
+            icon="clipboard-list"
+            inverse={false}
+            listItem={false}
+            mask={null}
+            pull={null}
+            pulse={false}
+            rotation={null}
+            size="2x"
+            spin={false}
+            symbol={false}
+            title=""
+            transform={null}
+          />
+          <input
+            className="validate white-text"
+            id="title"
+            name="title"
+            onChange={[Function]}
+            type="text"
+            value=""
+          />
+          <label
+            className="white-text"
+            htmlFor="title"
+          >
+            Title
+          </label>
+        </div>
+      </div>
+    </div>
+    <div
+      className="row"
+    >
+      <div
+        className="container"
+      >
+        <div
+          className="input-field col s12"
+        >
+          <FontAwesomeIcon
+            border={false}
+            className="prefix white-text"
+            fixedWidth={false}
+            flip={null}
+            icon="map-marker-alt"
+            inverse={false}
+            listItem={false}
+            mask={null}
+            pull={null}
+            pulse={false}
+            rotation={null}
+            size="2x"
+            spin={false}
+            symbol={false}
+            title=""
+            transform={null}
+          />
+          <input
+            className="validate white-text"
+            id="location"
+            name="location"
+            onChange={[Function]}
+            type="text"
+            value=""
+          />
+          <label
+            className="white-text"
+            htmlFor="location"
+          >
+            Location
+          </label>
+        </div>
+      </div>
+    </div>
+    <div
+      className="row"
+    >
+      <div
+        className="container"
+      >
+        <div
+          className="input-field col s12"
+        >
+          <FontAwesomeIcon
+            border={false}
+            className="prefix white-text"
+            fixedWidth={false}
+            flip={null}
+            icon="file-alt"
+            inverse={false}
+            listItem={false}
+            mask={null}
+            pull={null}
+            pulse={false}
+            rotation={null}
+            size="2x"
+            spin={false}
+            symbol={false}
+            title=""
+            transform={null}
+          />
+          <input
+            className="validate white-text"
+            id="description"
+            name="description"
+            onChange={[Function]}
+            type="text"
+            value=""
+          />
+          <label
+            className="white-text"
+            htmlFor="description"
+          >
+            Description
+          </label>
+        </div>
+      </div>
+    </div>
+    <div
+      className="row"
+    >
+      <div
+        className="container"
+      >
+        <div
+          className="col s12"
+        >
+          <button
+            className="btn waves-effect waves-lighten hoverable sky-blue"
+            style={
+              Object {
+                "width": "100%",
+              }
+            }
+            type="submit"
+          >
+            Add your thing
+          </button>
+        </div>
+      </div>
+    </div>
+  </form>
+</Unknown>
+`;
