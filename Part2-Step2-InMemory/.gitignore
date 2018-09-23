@@ -6,6 +6,10 @@
 # exception to the rule
 !/uploads/.gitkeep 
 
+
+# testing
+/coverage
+
 # misc
 .DS_Store
 .env.local
