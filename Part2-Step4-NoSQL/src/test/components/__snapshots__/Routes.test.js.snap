@@ -1,0 +1,23 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Should Render Add Todo Page Correctly 1`] = `
+<Unknown>
+  <Switch>
+    <Route
+      component={[Function]}
+      exact={true}
+      path="/"
+    />
+    <Route
+      component={[Function]}
+      exact={true}
+      path="/create"
+    />
+    <Route
+      component={[Function]}
+      exact={true}
+      path="/edit/:id"
+    />
+  </Switch>
+</Unknown>
+`;
