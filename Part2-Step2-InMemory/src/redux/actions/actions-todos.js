@@ -1,6 +1,3 @@
-import axios from 'axios';
-import db from '../../config/db';
-
 
 export const setLoading = () => {
     return {
@@ -34,13 +31,7 @@ export const setCurrentTodo = todo => {
 
 // INSERT TODO
 export const pushTodos = (todo) => {
-    return (dispatch, getState) => {
-
-        dispatch(pushTodosAction(todo));
-
-    }
-}
-export const pushTodosAction = (todo) => {
+    console.log(todo);
     return {
         type: 'PUSH_TODOS',
         payload: { todo },
@@ -48,48 +39,32 @@ export const pushTodosAction = (todo) => {
 }
 
 
+
 // SHOW TODO
-
-export const setTodos = () => {
-    return (dispatch, getState) => {
-        {
-            dispatch(setTodosAction(todos));
-        }
-    }
-}
-
-export const setTodosAction = (todos) => {
+export const setTodos = (todos) => {
     return {
         type: 'SET_TODOS_PAYLOAD',
         payload: { todos }
     }
 }
 
+
 // REMOVE TODO
-
 export const removeTodo = (id) => {
-    return (dispatch, getState) => {
-        {
-dispatch(removeTodoAction(id));
-        }
-    }
-}
-
-export const removeTodoAction = (id) => {
     return {
         type: 'REMOVE_TODO',
         payload: { id },
     }
 }
 
-// EDIT STATUS
+
+// EDIT CHECKBOX STATUS
 export const EditStatus = (id) => {
     return {
         type: 'EDIT_STATUS',
         payload: { id },
     }
 }
-
 export const EditStatusAction = (id, status) => {
     return (dispatch, getState) => {
 dispatch(EditStatus(id, status))

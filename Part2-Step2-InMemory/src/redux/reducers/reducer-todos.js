@@ -10,17 +10,9 @@ const initialState = {
 const todos = (state = initialState, action) => {
 
     switch (action.type) {
-
-        case 'SET_TODOS_LOADING':
-            return Object.assign({}, state, { isLoading: true, error: null })
-
-        case 'SET_TODOS_PAYLOAD':
-            return Object.assign({}, state, action.payload, { isLoading: false })
-
         case 'PUSH_TODOS':
-            return Object.assign({}, state, {
-                todos: [...state.todos, action.payload.todo]
-            })
+            // console.log('v',[...state.todos, action.payload.todo]);
+            return Object.assign({}, state, { todos: [...state.todos, action.payload.todo] })
 
         case 'REMOVE_TODO':
             let todoItem = state.todos.filter(todo => todo.id !== action.payload.id)
@@ -45,12 +37,12 @@ const todos = (state = initialState, action) => {
             return Object.assign({}, state, {
                 todos: state.todos.map((todos) => {
 
-                    if (todos.id === action.payload.id) 
+                    if (todos.id === action.payload.id)
                         todos.status = !todos.status
 
-                        return todos
+                    return todos
 
-                    
+
                 }
                 )
             })

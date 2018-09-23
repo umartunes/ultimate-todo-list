@@ -4,6 +4,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 class TodoForm extends React.Component {
 
     state = {
+        id: Math.random().toString(36).slice(), 
         title: this.props.data ? this.props.data.title : '',
         location: this.props.data ? this.props.data.location : '',
         description: this.props.data ? this.props.data.description : '',
@@ -28,6 +29,7 @@ class TodoForm extends React.Component {
         }
         else{
         this.props.onSubmit({
+            id: this.state.id,
             title: this.state.title,
             location: this.state.location,
             description: this.state.description,
