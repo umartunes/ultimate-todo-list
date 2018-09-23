@@ -7,18 +7,8 @@ export const setLoading = () => {
     }
 }
 
-export const setError = error => {
-    return {
-        type: 'SET_TODOS_PAYLOAD',
-        payload: { error }
-    }
-}
-export const unsetError = () => {
-    return {
-        type: 'SET_TODOS_PAYLOAD',
-        payload: { error: null }
-    }
-}
+
+
 
 export const setCurrentTodo = todo => {
 
@@ -43,13 +33,7 @@ export const pushTodos = todo => {
     }
 }
 
-export const unshiftTodos = todos => {
 
-    return {
-        type: 'UNSHIFT_TODOS',
-        payload: { todos }
-    }
-}
 export const deleteTodo = id => {
 
     return {
@@ -79,12 +63,15 @@ export const fetch = () => {
 
     return (dispatch, getState) => {
 
-        dispatch(setLoading())
+ 
 
         axios.get(window.baseURL + `/api/todos/`)
             .then(response => response.data)
             .then(result => dispatch(setTodos(result.data)))
-            .catch(error => { dispatch(setError(error)) })
+            .catch(error => {
+
+                window.notify("Error is Occured")
+            })
 
     }
 
@@ -94,12 +81,15 @@ export const fetchSingle = (_id) => {
 
     return (dispatch, getState) => {
 
-        dispatch(setLoading())
+   
 
         axios.get(window.baseURL + `/api/todos/${_id}/`)
             .then(response => response.data)
             .then(todo => dispatch(setCurrentTodo(todo)))
-            .catch(error => dispatch(setError(error)))
+            .catch(error => {
+                
+                window.notify("Error is Occured")
+            })
 
     }
 
@@ -116,7 +106,7 @@ export const postTodo = (formData) => {
 
     return (dispatch, getState) => {
 
-        dispatch(setLoading())
+    
 
         axios.post(window.baseURL + `/api/todos/`, formData, )
             .then(response => response.data)
@@ -125,7 +115,10 @@ export const postTodo = (formData) => {
                 window.notify("Todo Data Has Been Saved")
 
             })
-            .catch(error => { dispatch(setError(error)) })
+            .catch(error => {
+
+                window.notify("Error is Occured")
+            })
 
     }
 
@@ -142,7 +135,7 @@ export const updateTodo = (id, formData) => {
 
     return (dispatch, getState) => {
 
-        dispatch(setLoading())
+   
 
         axios.put(window.baseURL + `/api/todos/${id}`, formData, )
             .then(response => response.data)
@@ -151,7 +144,10 @@ export const updateTodo = (id, formData) => {
                 window.notify("Todo Has Been Updated")
 
             })
-            .catch(error => { dispatch(setError(error)) })
+            .catch(error => {
+
+                window.notify("Error is Occured")
+            })
 
     }
 
@@ -161,7 +157,7 @@ export const updateSatus = (id, formData) => {
 
     return (dispatch, getState) => {
 
-        dispatch(setLoading())
+
 
         axios.put(window.baseURL + `/api/todos/${id}`, formData)
             .then(response => response.data)
@@ -172,7 +168,9 @@ export const updateSatus = (id, formData) => {
                 dispatch(editStatus(id))
 
             })
-            .catch(error => { dispatch(setError(error)) })
+            .catch(error => {
+                window.notify("Error is Occured")
+            })
 
     }
 
@@ -184,7 +182,7 @@ export const deleteSingle = (_id) => {
 
     return (dispatch, getState) => {
 
-        dispatch(setLoading())
+   
 
         axios.delete(window.baseURL + `/api/todos/${_id}/`)
             .then(response => response.data)
@@ -192,7 +190,9 @@ export const deleteSingle = (_id) => {
                 dispatch(deleteTodo(result.data._id))
                 window.notify("One Todo Data Has Been Deleted")
             })
-            .catch(error => dispatch(setError(error)))
+            .catch(error => {
+                window.notify("Error is Occured")
+            })
 
     }
 
