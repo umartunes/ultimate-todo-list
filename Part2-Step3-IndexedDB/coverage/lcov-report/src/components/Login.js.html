@@ -1,0 +1,362 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <title>Code coverage report for src/components/Login.js</title>
+    <meta charset="utf-8" />
+    <link rel="stylesheet" href="..\..\prettify.css" />
+    <link rel="stylesheet" href="..\..\base.css" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <style type='text/css'>
+        .coverage-summary .sorter {
+            background-image: url(..\..\sort-arrow-sprite.png);
+        }
+    </style>
+</head>
+<body>
+<div class='wrapper'>
+  <div class='pad1'>
+    <h1>
+      <a href="..\..\index.html">All files</a> / <a href="index.html">src/components</a> Login.js
+    </h1>
+    <div class='clearfix'>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">0% </span>
+        <span class="quiet">Statements</span>
+        <span class='fraction'>0/28</span>
+      </div>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">0% </span>
+        <span class="quiet">Branches</span>
+        <span class='fraction'>0/12</span>
+      </div>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">0% </span>
+        <span class="quiet">Functions</span>
+        <span class='fraction'>0/7</span>
+      </div>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">0% </span>
+        <span class="quiet">Lines</span>
+        <span class='fraction'>0/21</span>
+      </div>
+    </div>
+  </div>
+  <div class='status-line low'></div>
+<pre><table class="coverage">
+<tr><td class="line-count quiet">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32
+33
+34
+35
+36
+37
+38
+39
+40
+41
+42
+43
+44
+45
+46
+47
+48
+49
+50
+51
+52
+53
+54
+55
+56
+57
+58
+59
+60
+61
+62
+63
+64
+65
+66
+67
+68
+69
+70
+71
+72
+73
+74
+75
+76
+77
+78
+79
+80
+81
+82
+83
+84
+85
+86
+87
+88
+89
+90
+91
+92
+93
+94
+95
+96
+97
+98
+99
+100</td><td class="line-coverage quiet"><span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">import React,<span class="cstat-no" title="statement not covered" > { Component, Fragment } from 'react'<span class="cstat-no" title="statement not covered" ><span class="cstat-no" title="statement not covered" ><span class="cstat-no" title="statement not covered" ></span></span></span></span>
+import { withRouter } <span class="cstat-no" title="statement not covered" >from 'react-router-dom'</span>
+import { connect }<span class="cstat-no" title="statement not covered" > from 'react-redux'</span>
+import FacebookLogin from <span class="cstat-no" title="statement not covered" >'react-facebook-login';<span class="cstat-no" title="statement not covered" ></span></span>
+&nbsp;
+import { facebookLo<span class="cstat-no" title="statement not covered" >gin } from '../redux/actions/actions-auth</span>'
+import Spinner <span class="cstat-no" title="statement not covered" >from './widgets/Spinner'<span class="cstat-no" title="statement not covered" ></span></span>
+import todoIc<span class="cstat-no" title="statement not covered" >on from '../images/todos.svg'<span class="cstat-no" title="statement not covered" ><span class="cstat-no" title="statement not covered" ><span class="fstat-no" title="function not covered" ></span></span></span></span>
+&nbsp;
+class Login extends Component {<span class="cstat-no" title="statement not covered" ><span class="fstat-no" title="function not covered" ></span></span>
+&nbsp;
+    state = {
+        loading: false
+    }
+&nbsp;
+    handleClick = () =<span class="fstat-no" title="function not covered" >&gt; </span>{
+        cons<span class="cstat-no" title="statement not covered" >ole.log("I m clicked")</span>
+        // this.setState({ loading: true })
+    }
+&nbsp;
+    handleSuccess = (mes<span class="fstat-no" title="function not covered" >sa</span>ge) =&gt; {
+&nbsp;
+        wind<span class="cstat-no" title="statement not covered" >ow.notify(message)</span>
+        this<span class="cstat-no" title="statement not covered" >.setState({ loading: false })</span>
+&nbsp;
+        if (<span class="cstat-no" title="statement not covered" >this.props.successCB !== undefined)</span>
+<span class="cstat-no" title="statement not covered" >            this.props.successCB()</span>
+&nbsp;
+        if (<span class="cstat-no" title="statement not covered" >this.props.redirect !== false)</span>
+<span class="cstat-no" title="statement not covered" >            this.props.history.go(-1)</span>
+&nbsp;
+    }
+&nbsp;
+    handleFailure = (mes<span class="fstat-no" title="function not covered" >sa</span>ge) =&gt; {
+&nbsp;
+        wind<span class="cstat-no" title="statement not covered" >ow.notify(message)</span>
+        this<span class="cstat-no" title="statement not covered" >.setState({ loading: false })</span>
+&nbsp;
+    }
+&nbsp;
+    responseFacebook = (res<span class="fstat-no" title="function not covered" >po</span>nse) =&gt; {
+&nbsp;
+        this<span class="cstat-no" title="statement not covered" >.setState({ loading: true })</span>
+        // console.log(response)
+        this<span class="cstat-no" title="statement not covered" >.props.dispatch(facebookLogin(response, this.handleSuccess, this.handleFailure))</span>
+&nbsp;
+    }
+&nbsp;
+<span class="fstat-no" title="function not covered" >    re</span>nder() {
+<span class="cstat-no" title="statement not covered" >        return (</span>
+            &lt;Fragment&gt;
+                &lt;main className="loginRoute"&gt;
+                    &lt;div className="purple darken-1"&gt;
+                        &lt;div className="container"&gt;
+                            &lt;div className="row margin0"&gt;
+                                &lt;div className="col s12 white-text flexBox flexColumn"&gt;
+                                    &lt;h3 className="center-align margin0"&gt;The Ultimate Todo&lt;/h3&gt;
+                                    &lt;div className="center-align marginTop marginBottom"&gt;
+                                        &lt;img src={todoIcon} alt="Shake" style={{ width: '100%', maxWidth: 250 }} /&gt;
+                                    &lt;/div&gt;
+                                    &lt;div className="loginButtons flex"&gt;
+                                        {
+                                            this.state.loading
+                                                ? (
+                                                    &lt;div className="center"&gt;
+                                                        &lt;Spinner size="big" color="white" /&gt;
+                                                    &lt;/div&gt;
+                                                )
+                                                : (
+                                                    &lt;FacebookLogin
+                                                        appId={window.isDelvelopment ? "1988058381486259" : "1565313530236371"}
+                                                        autoLoad={false}
+                                                        disableMobileRedirect={true}
+                                                        fields="name,email,picture"
+                                                        cssClass="btn-large waves-effect waves-light indigo hoverable m-full-width"
+                                                        // onClick={this.handleClick}
+                                                        callback={this.responseFacebook}
+                                                    // render={ renderProps =&gt; (
+                                                    //     &lt;a className="btn-large waves-effect waves-light indigo hoverable m-full-width" onClick={renderProps.onClick}&gt;Login&lt;/a&gt;
+                                                    // )}
+                                                    /&gt;
+                                                )
+                                        }
+                                    &lt;/div&gt;
+&nbsp;
+                                    &lt;p className="center-align white-text"&gt;* Don't have an account? We'll automatically create it. Simply Login using facebook.&lt;/p&gt;
+&nbsp;
+                                &lt;/div&gt;
+                            &lt;/div&gt;
+                        &lt;/div&gt;
+                    &lt;/div&gt;
+                &lt;/main&gt;
+            &lt;/Fragment&gt;
+        )
+    }<span class="cstat-no" title="statement not covered" ></span>
+&nbsp;
+}
+&nbsp;
+&nbsp;
+export default withRouter(connect()(Login))</pre></td></tr>
+</table></pre>
+<div class='push'></div><!-- for sticky footer -->
+</div><!-- /wrapper -->
+<div class='footer quiet pad2 space-top1 center small'>
+  Code coverage
+  generated by <a href="https://istanbul.js.org/" target="_blank">istanbul</a> at Sat Sep 22 2018 20:23:35 GMT+0500 (Pakistan Standard Time)
+</div>
+</div>
+<script src="..\..\prettify.js"></script>
+<script>
+window.onload = function () {
+        if (typeof prettyPrint === 'function') {
+            prettyPrint();
+        }
+};
+</script>
+<script src="..\..\sorter.js"></script>
+</body>
+</html>

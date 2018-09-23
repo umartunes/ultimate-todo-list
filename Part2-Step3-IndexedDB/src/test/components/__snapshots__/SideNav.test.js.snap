@@ -1,0 +1,121 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Should Render Side Nav Correctly 1`] = `
+<Unknown>
+  <ul
+    className="sidenav sidenav-fixed"
+    id="slide-out"
+  >
+    <li>
+      <div
+        className="row"
+      >
+        <div
+          className="col s12 center-align"
+        >
+          <img
+            alt="Todo"
+            className="circle center-align hoverable"
+            src="todo.png"
+            style={
+              Object {
+                "margin": "auto",
+                "width": "60%",
+              }
+            }
+          />
+        </div>
+      </div>
+    </li>
+    <li>
+      <Link
+        className="waves-effect sidenav-font"
+        replace={false}
+        to="/create"
+      >
+        <FontAwesomeIcon
+          border={false}
+          className="blue-text tex-darken-4"
+          fixedWidth={false}
+          flip={null}
+          icon="plus"
+          inverse={false}
+          listItem={false}
+          mask={null}
+          pull={null}
+          pulse={false}
+          rotation={null}
+          size="1x"
+          spin={false}
+          style={
+            Object {
+              "marginRight": 10,
+            }
+          }
+          symbol={false}
+          title=""
+          transform={null}
+        />
+        Add New Todo
+      </Link>
+    </li>
+    <hr />
+    <li>
+      <Link
+        className="waves-effect sidenav-font"
+        replace={false}
+        to="/"
+      >
+        <FontAwesomeIcon
+          border={false}
+          className="blue-text tex-darken-4"
+          fixedWidth={false}
+          flip={null}
+          icon="list-ul"
+          inverse={false}
+          listItem={false}
+          mask={null}
+          pull={null}
+          pulse={false}
+          rotation={null}
+          size="1x"
+          spin={false}
+          style={
+            Object {
+              "marginRight": 10,
+            }
+          }
+          symbol={false}
+          title=""
+          transform={null}
+        />
+        Todo List
+      </Link>
+    </li>
+  </ul>
+  <a
+    className="sidenav-trigger"
+    data-target="slide-out"
+    href="/"
+  >
+    <FontAwesomeIcon
+      border={false}
+      className="white-text"
+      fixedWidth={false}
+      flip={null}
+      icon="bars"
+      inverse={false}
+      listItem={false}
+      mask={null}
+      pull={null}
+      pulse={false}
+      rotation={null}
+      size="1x"
+      spin={false}
+      symbol={false}
+      title=""
+      transform={null}
+    />
+  </a>
+</Unknown>
+`;
