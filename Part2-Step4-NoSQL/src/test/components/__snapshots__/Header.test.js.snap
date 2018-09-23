@@ -1,0 +1,20 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Should Render Header Correctly 1`] = `
+<Unknown>
+  <header>
+    <h4
+      className="white-text marginZero"
+      style={
+        Object {
+          "position": " relative",
+          "textIndent": "15px",
+          "top": "60%",
+        }
+      }
+    >
+      The Ultimate Todo App
+    </h4>
+  </header>
+</Unknown>
+`;
