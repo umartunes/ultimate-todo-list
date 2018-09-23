@@ -1,0 +1,39 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Should Render Section Page Correctly 1`] = `
+<Unknown>
+  <main
+    className="tod-List-Setting"
+  >
+    <Connect(TodoList) />
+  </main>
+  <div
+    className="fixed-action-btn"
+  >
+    <Link
+      className="btn-floating btn-large waves-effect waves-light hoverable sky-blue"
+      replace={false}
+      to="/create"
+    >
+      <FontAwesomeIcon
+        border={false}
+        className=""
+        fixedWidth={false}
+        flip={null}
+        icon="plus"
+        inverse={false}
+        listItem={false}
+        mask={null}
+        pull={null}
+        pulse={false}
+        rotation={null}
+        size="1x"
+        spin={false}
+        symbol={false}
+        title=""
+        transform={null}
+      />
+    </Link>
+  </div>
+</Unknown>
+`;
