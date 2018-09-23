@@ -2,9 +2,15 @@
 
 # dependencies
 /node_modules
+<<<<<<< HEAD
 
 # testing
 /coverage
+=======
+/uploads/*
+# exception to the rule
+!/uploads/.gitkeep 
+>>>>>>> part1-step2
 
 # misc
 .DS_Store

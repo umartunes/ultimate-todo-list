@@ -6,6 +6,13 @@
 # exception to the rule
 !/uploads/.gitkeep 
 
+<<<<<<< HEAD
+=======
+
+# testing
+/coverage
+
+>>>>>>> part1-step2
 # misc
 .DS_Store
 .env.local
