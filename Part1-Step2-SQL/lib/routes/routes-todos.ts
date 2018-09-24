@@ -8,13 +8,13 @@ export class todosRouters {
     public routes(server) {
 
         // get todos from post-grey-sql
-        server.route('/api/todos').get((req, res: any) => {
+        server.route('/api/todos').get((req: Request, res: any, next) => {
             client.query('SELECT * FROM todos', (err, todos: any) => {
                 if (err) {
-                    res.t.message = "Some error occured";
-                    return res.status(500).send(res.t)
+                    return next(err)
                 }
                 if (!todos || !todos.rows.length) {
+                    console.log(todos)
                     res.t.message = "No Todos available"
                     return res.status(200).send(res.t)
                 }
@@ -26,9 +26,8 @@ export class todosRouters {
         })
 
         // insert todos in post-grey-sql
-        server.route('/api/todos').post(function (req: Request, res: any) {
+        server.route('/api/todos').post(function (req: Request, res: any, next) {
             if (!req.body.title || !req.body.place || !req.body.description) {
-                console.log('in step 2')
                 res.t.message = "Invalid Request"
                 return res.status(203).send(res.t)
             }
@@ -38,8 +37,7 @@ export class todosRouters {
             }
             client.query(queryInsert, (err, todos: any) => {
                 if (err) {
-                    res.t.message = "Some error occured";
-                    return res.status(500).send(res.t)
+                    return next(err)
                 }
                 if (!todos || !todos.rows.length) {
                     res.t.message = "No Todos available"
@@ -53,7 +51,7 @@ export class todosRouters {
         });
 
         // get one TODO from Post-gre-sql
-        server.route('/api/todos/:id').get(function (req, res: any) {
+        server.route('/api/todos/:id').get(function (req: Request, res: any, next) {
 
             let { id } = req.params
             const queryOneTodo = {
@@ -62,8 +60,7 @@ export class todosRouters {
             }
             client.query(queryOneTodo, (err, todos: any) => {
                 if (err) {
-                    res.t.message = "Some error occured";
-                    return res.status(500).send(res.t)
+                    return next(err)
                 }
                 if (!todos || !todos.rows.length) {
                     res.t.message = "No Todos available"
@@ -71,13 +68,14 @@ export class todosRouters {
                 }
                 res.t.success = true
                 res.t.message = "Todos Found"
-                res.t.data = todos.rows
+                res.t.data = todos.rows[0]
                 return res.status(200).send(res.t)
             })
         })
 
         // Update Todos in post-gre-sql
-        server.route('/api/todos/:id').put(function (req: any, res: any) {
+        server.route('/api/todos/:id').put(function (req: Request, res: any, next) {
+
             if (!req.body.title || !req.body.place || !req.body.description) {
                 res.t.message = "Invalid Request"
                 return res.status(203).send(res.t)
@@ -90,8 +88,7 @@ export class todosRouters {
             }
             client.query(queryUpdate, (err: any, todo: any) => {
                 if (err) {
-                    res.t.message = "Some error occured";
-                    return res.status(500).send(res.t)
+                    return next(err)
                 }
                 if (!todo) {
                     res.t.message = "Todo not available"
@@ -105,7 +102,7 @@ export class todosRouters {
         })
 
         //Delete Todo from post-gre-sql
-        server.route('/api/todos/:id').delete(function (req: any, res: any) {
+        server.route('/api/todos/:id').delete(function (req: Request, res: any, next) {
             let { id }: any = req.params;
             const queryDelete = {
                 text: 'DELETE FROM todos  WHERE _id = ($1) RETURNING *',
@@ -113,8 +110,7 @@ export class todosRouters {
             }
             client.query(queryDelete, (err: any, todo: any) => {
                 if (err) {
-                    res.t.message = "Some error occured";
-                    return res.status(500).send(res.t)
+                    return next(err)
                 }
                 if (!todo) {
                     res.t.message = "Todo not available"

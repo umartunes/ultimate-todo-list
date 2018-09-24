@@ -14,22 +14,17 @@ class App {
     public todoRoute: todosRouters = new todosRouters();
     constructor() {
         this.server = express();
-       this.configuration();
+        this.configuration();
     }
 
     private configuration(): void {
-         //Use Custom Middleware to get response template in all api routes
+        //Use Custom Middleware to get response template in all api routes
         this.server.use(responseTemplate);
-       
+
         this.server.use(bodyParser.urlencoded({ extended: true }));
         this.server.use(bodyParser.json());
-       
-        //Error Control
-        this.server.use(function (err, req, res, next) {
-            console.error(err);
-            res.status(500).send('Something broke!');
-        })
-
+        
+        //Handling CORS requests
         this.server.use((req: Request, res: Response, next) => {
             res.header("Access-Control-Allow-Origin", "*");
             res.header("Access-Control-Allow-Credentials", "true");
@@ -37,10 +32,18 @@ class App {
             res.header("Access-Control-Allow-Headers", "Content-Type");
             next();
         });
+
+        //Setting routes
         this.todoRoute.routes(this.server);
-        this.server.get('/', (req, res: any) => {
-                res.status(200).send("Root / Working...");
-            })
+        this.server.get('/', (req: Request, res: Response) => {
+            res.status(200).send("Root / Working...");
+        })
+
+        //Error Control
+        this.server.use(function (err, req: Request, res: Response, next) {
+            console.error(err);
+            res.status(500).send('Something broke!');
+        })
     }
 }
 
