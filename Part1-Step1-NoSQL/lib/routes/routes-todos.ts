@@ -3,7 +3,11 @@ var router = express.Router()
 
 import Todos from '../models/model-todos'
 
-router.get('/', (req, res : any) => {
+export class todosRouter {
+    
+    public routes (server){
+
+        server.route('/api/todos').get( (req, res : any) => {
 
     let $query : any = {}
 
@@ -13,11 +17,9 @@ router.get('/', (req, res : any) => {
             res.t.message = "No Todos available"
             return res.status(200).send(res.t)
         }
-
         res.t.success = true
         res.t.message = "Data found"
         res.t.data = todos
-
         return res.status(200).send(res.t)
 
     })
@@ -25,7 +27,7 @@ router.get('/', (req, res : any) => {
 })
 
 // Sigle Todo Get
-router.get('/:id', function (req, res : any) {
+server.route('/api/todos/:id').get( function (req, res : any) {
 
     let { id } : any = req.params
 
@@ -47,7 +49,7 @@ router.get('/:id', function (req, res : any) {
 })
 
 // insert Todo 
-router.post('/' , function (req : any, res : any) {
+server.route('/api/todos').post( function (req : any, res : any) {
 
     // console.log(req.body)
     // console.log(req.body.moreInfo)
@@ -82,7 +84,7 @@ router.post('/' , function (req : any, res : any) {
 
 // Update Todos 
 
-router.put('/:id', function (req : any, res : any) {
+server.route('/api/todos/:id').put( function (req : any, res : any) {
 
     if (!req.body.title || !req.body.place || !req.body.description) {
         res.t.message = "Invalid Request"
@@ -110,7 +112,7 @@ router.put('/:id', function (req : any, res : any) {
 })
 
 //Delete Todo
-router.delete('/:id', function (req:any, res : any) {
+server.route('/api/todos/:id').delete( function (req:any, res : any) {
 
     let { id } : any = req.params;
 
@@ -131,7 +133,6 @@ router.delete('/:id', function (req:any, res : any) {
 
 })
 
+}
 
-
-
-export default router
+}

@@ -2,6 +2,7 @@ import express = require('express');
 var router = express.Router()
 import { Request, Response } from "express";
 import client from '../config/db-config'
+
 export class todosRouters {
 
     public routes(server) {
@@ -21,9 +22,7 @@ export class todosRouters {
                 res.t.message = "Todos Found"
                 res.t.data = todos.rows
                 return res.status(200).send(res.t)
-
             })
-
         })
 
         // insert todos in post-grey-sql
@@ -38,7 +37,6 @@ export class todosRouters {
                 values: [req.body.title, req.body.place, req.body.description, req.body.status,],
             }
             client.query(queryInsert, (err, todos: any) => {
-
                 if (err) {
                     res.t.message = "Some error occured";
                     return res.status(500).send(res.t)
@@ -52,7 +50,6 @@ export class todosRouters {
                 res.t.data = todos.rows
                 res.status(200).send(res.t)
             })
-
         });
 
         // get one TODO from Post-gre-sql
@@ -62,9 +59,7 @@ export class todosRouters {
             const queryOneTodo = {
                 text: 'SELECT * FROM todos WHERE _id = ($1) ',
                 values: [id]
-
             }
-
             client.query(queryOneTodo, (err, todos: any) => {
                 if (err) {
                     res.t.message = "Some error occured";
