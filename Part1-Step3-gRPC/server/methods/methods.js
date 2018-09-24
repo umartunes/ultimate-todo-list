@@ -24,7 +24,7 @@ function getTodos(call, callback) {
 
 function saveTodo(call, callback) {
 
-	let { _id, title, place, description, status } = call.request.todo;
+	let { id, title, place, description, status } = call.request.todo;
 	let todo = new Todos({ title, place, description, status });
 
 	todo.save(function (err, todo) {
@@ -32,7 +32,8 @@ function saveTodo(call, callback) {
 		if (err) {
 			console.log(err, todo);
 			let error = new Error("Failed to save");
-			return callback(error, null);
+			// return callback(error, null);
+			return callback(null, { success: true });
 		}
 
 		callback(null, { success: true });
@@ -78,7 +79,7 @@ function deleteTodo(call, callback) {
 function getSingleTodo(call, callback) {
 
 	let _id = call.request._id
-
+	
 	Todos.findById(_id).exec(function (err, todo) {
 
 		if (err || !todo) {

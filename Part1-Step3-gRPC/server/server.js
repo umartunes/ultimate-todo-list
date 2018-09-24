@@ -6,12 +6,10 @@ const PROTO_PATH = path.join( __dirname + "/proto", "services.proto");
 const grpc = require("grpc");
 const protoLoader = require("@grpc/proto-loader");
 const serviceDefinition = protoLoader.loadSync(PROTO_PATH);
-const PORT = 5005;
-
-const credentials = grpc.ServerCredentials.createInsecure();
-const server = new grpc.Server();
 
 const methods = require('./methods/methods')
+
+const server = new grpc.Server();
 
 server.addService(serviceDefinition.TodoService, {
   GetTodos: methods.getTodos,
@@ -20,6 +18,9 @@ server.addService(serviceDefinition.TodoService, {
   DeleteTodo: methods.deleteTodo,
   GetSingleTodo: methods.getSingleTodo
 });
+
+const PORT = 5005;
+const credentials = grpc.ServerCredentials.createInsecure();
 
 server.bind(`0.0.0.0:${PORT}`, credentials);
 console.log(`server listening on port ${PORT}`);
