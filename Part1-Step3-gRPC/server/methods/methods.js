@@ -32,8 +32,7 @@ function saveTodo(call, callback) {
 		if (err) {
 			console.log(err, todo);
 			let error = new Error("Failed to save");
-			// return callback(error, null);
-			return callback(null, { success: true });
+			return callback(error, null);
 		}
 
 		callback(null, { success: true });

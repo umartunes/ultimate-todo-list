@@ -1,6 +1,5 @@
 const grpc = require("grpc");
-const protoPath = require("path").join(__dirname + "/server/proto", "services.proto");
-const process = require("process");
+const protoPath = require("path").join(__dirname, "/../server/proto/services.proto");
 // const protoLoader = require('@grpc/proto-loader');
 // const services = protoLoader.loadSync(protoPath);
 const services = grpc.load(protoPath);
@@ -11,57 +10,26 @@ const Client = new services.TodoService(
 	`0.0.0.0:${PORT}`,
 	creds
 );
-
-const option = parseInt(process.argv[2], 10);
 const _id = "5ba896de265eb62600d5d39f";
 
-switch (option) {
-	case 1:
-		GetTodos();
-		break;
-
-	case 2:
-		SaveTodo();
-		break;
-
-	case 3:
-		UpdateTodo();
-		break;
-
-	case 4:
-		DeleteTodo();
-		break;
-
-	case 5:
-		GetSingleTodo();
-		break;
-
-	default:
-		GetTodos();
-		break;
-}
-
-function GetTodos() {
-	const call = Client.GetTodos({});
-
-	call.on("data", function (todo) {
-		console.log(todo.todo);
-	});
-}
-function SaveTodo() {
+test("test for adding a new todo", () => {
 	let todo = {
-		_id: _id, 
+		_id: _id,
 		title: "GRPC Title Saving",
 		place: "working",
 		description: "working",
 		status: 'pending'
 	};
 	Client.SaveTodo({ todo: todo }, function (err, response) {
-		console.log(err || response);
+		if (!err) {
+			expect(response).not.toBeNull();
+		} else {
+			console.log("Error:", err.message);
+		}
 	});
-}
+});
 
-function UpdateTodo() {
+test("test for udating a todo", () => {
 	let todo = {
 		_id: _id,
 		title: "GRPC Title Editing",
@@ -70,16 +38,30 @@ function UpdateTodo() {
 		status: 'completed'
 	};
 	Client.UpdateTodo({ todo: todo }, function (err, response) {
-		console.log(err || response);
+		if (!err) {
+			expect(response).not.toBeNull();
+		} else {
+			console.log("Error:", error.message);
+		}
 	});
-}
-function DeleteTodo() {
+});
+
+test("test for deleting a todo", () => {
 	Client.DeleteTodo({ _id: _id }, function (err, response) {
-		console.log(err || response);
+		if (!err) {
+			expect(response).not.toBeNull();
+		} else {
+			console.log("Error:", err.message);
+		}
 	});
-}
-function GetSingleTodo() {
+});
+
+test("test for getting single todo", () => {
 	Client.GetSingleTodo({ _id: _id }, function (err, response) {
-		console.log(err || response);
+		if (!err) {
+			expect(response).not.toBeNull();
+		} else {
+			console.log("Error:", err.message);
+		}
 	});
-}
+});

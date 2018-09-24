@@ -1,17 +1,16 @@
-//DB Connection
-require('./config/db-config')
-
-const path = require("path");
-const PROTO_PATH = path.join( __dirname + "/proto", "services.proto");
 const grpc = require("grpc");
 const protoLoader = require("@grpc/proto-loader");
-const serviceDefinition = protoLoader.loadSync(PROTO_PATH);
+const protoPath = require("path").join( __dirname + "/proto", "services.proto");
+const services = protoLoader.loadSync(protoPath);
+
+//DB Connection
+require('./config/db-config')
 
 const methods = require('./methods/methods')
 
 const server = new grpc.Server();
 
-server.addService(serviceDefinition.TodoService, {
+server.addService(services.TodoService, {
   GetTodos: methods.getTodos,
   SaveTodo: methods.saveTodo,
   UpdateTodo: methods.updateTodo,
