@@ -1,39 +1,35 @@
-import express = require('express');
+import express = require('express')
 import bodyParser = require('body-parser')
-import { Request, Response } from "express";
-//Importing Routes
-import {todosRouter} from './routes/routes-todos'
+import { Request, Response } from "express"
 
+//Importing Routes
+import { todosRouter } from './routes/routes-todos'
 
 //Importing MiddleWares
 import responseTemplate from './middlewares/response-template'
 
- //DB Connection
-require('./config/db-config')
-
 //TypeScript class
 class App {
+
     public server: express.Application;
 
     public todoRoute: todosRouter = new todosRouter();
+
     constructor() {
         this.server = express();
-       this.configuration();
+        this.configuration();
+        //DB Connection
+        require('./config/db-config')
     }
 
     private configuration(): void {
-         //Use Custom Middleware to get response template in all api routes
+        //Use Custom Middleware to get response template in all api routes
         this.server.use(responseTemplate);
-       
+
         this.server.use(bodyParser.urlencoded({ extended: true }));
         this.server.use(bodyParser.json());
-       
-        //Error Control
-        this.server.use(function (err, req, res, next) {
-            console.error(err);
-            res.status(500).send('Something broke!');
-        })
 
+        //Handling CORS requests
         this.server.use((req: Request, res: Response, next) => {
             res.header("Access-Control-Allow-Origin", "*");
             res.header("Access-Control-Allow-Credentials", "true");
@@ -41,10 +37,18 @@ class App {
             res.header("Access-Control-Allow-Headers", "Content-Type");
             next();
         });
+
+        //setting routes
         this.todoRoute.routes(this.server);
-        this.server.get('/', (req, res: any) => {
-                res.status(200).send("Root / Working...");
-            })
+        this.server.get('/', (req: Request, res: Response) => {
+            res.status(200).send("Root / Working...");
+        })
+
+        //Error Control
+        this.server.use(function (err, req, res, next) {
+            console.error(err);
+            res.status(500).send('Something broke!');
+        })
     }
 }
 
