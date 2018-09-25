@@ -20,9 +20,9 @@
     </h1>
     <div class='clearfix'>
       <div class='fl pad1y space-right2'>
-        <span class="strong">81.25% </span>
+        <span class="strong">86.96% </span>
         <span class="quiet">Statements</span>
-        <span class='fraction'>13/16</span>
+        <span class='fraction'>20/23</span>
       </div>
       <div class='fl pad1y space-right2'>
         <span class="strong">100% </span>
@@ -30,14 +30,14 @@
         <span class='fraction'>0/0</span>
       </div>
       <div class='fl pad1y space-right2'>
-        <span class="strong">0% </span>
+        <span class="strong">60% </span>
         <span class="quiet">Functions</span>
-        <span class='fraction'>0/2</span>
+        <span class='fraction'>3/5</span>
       </div>
       <div class='fl pad1y space-right2'>
-        <span class="strong">81.25% </span>
+        <span class="strong">86.96% </span>
         <span class="quiet">Lines</span>
-        <span class='fraction'>13/16</span>
+        <span class='fraction'>20/23</span>
       </div>
     </div>
   </div>
@@ -83,24 +83,17 @@
 38
 39
 40
-41</td><td class="line-coverage quiet"><span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">1x</span>
+41
+42
+43
+44
+45
+46
+47
+48
+49
+50
+51</td><td class="line-coverage quiet"><span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -111,65 +104,102 @@
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">5x</span>
+<span class="cline-any cline-yes">5x</span>
+<span class="cline-any cline-yes">5x</span>
+<span class="cline-any cline-yes">5x</span>
+<span class="cline-any cline-yes">5x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">1x</span></td><td class="text"><pre class="prettyprint lang-js">import express = require('express');
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span></td><td class="text"><pre class="prettyprint lang-js">import express = require('express')
+import bodyParser = require('body-parser')
+import { Request, Response } from "express";
 &nbsp;
-import * as bodyParser from 'body-parser'
-&nbsp;
-//Importing Routes
-import todosRouter from './routes/routes-todos'
-&nbsp;
+//Importing Routes class
+import { todosRouters } from './routes/routes-todos';
 &nbsp;
 //Importing MiddleWares
-import responseTemplate from './middlewares/response-template'
+import responseTemplate from './middlewares/response-template';
 &nbsp;
-const server = express()
+class App {
+    public server: express.Application;
 &nbsp;
-//DB Connection
-require('./config/db-config')
+    public todoRoute: todosRouters = new todosRouters();
+    constructor() {
+        this.server = express();
+        this.configuration();
+    }
 &nbsp;
-//Body Parser
-server.use(bodyParser.urlencoded({ extended: true }))
-server.use(bodyParser.json())
+    private configuration(): void {
+        //Use Custom Middleware to get response template in all api routes
+        this.server.use(responseTemplate);
+&nbsp;
+        this.server.use(bodyParser.urlencoded({ extended: true }));
+        this.server.use(bodyParser.json());
+        
+        //Handling CORS requests
+        this.server.use((req: Request, res: Response, next) =&gt; {
+            res.header("Access-Control-Allow-Origin", "http://localhost:3000");
+            res.header("Access-Control-Allow-Credentials", "true");
+            res.header("Access-Control-Allow-Methods", "GET,PUT,POST,DELETE");
+            res.header("Access-Control-Allow-Headers", "Content-Type");
+            next();
+        });
+&nbsp;
+        //Setting routes
+        this.todoRoute.routes(this.server);
+        this.server.get('/', <span class="fstat-no" title="function not covered" >(r</span>eq: Request, res: Response) =&gt; {
+<span class="cstat-no" title="statement not covered" >            res.status(200).send("Root / Working...");</span>
+        })
+&nbsp;
+        //Error Control
+        this.server.use(<span class="fstat-no" title="function not covered" >function (</span>err, req: Request, res: Response, next) {
+<span class="cstat-no" title="statement not covered" >            console.error(err);</span>
+<span class="cstat-no" title="statement not covered" >            res.status(500).send('Something broke!');</span>
+        })
+    }
+}
 &nbsp;
 &nbsp;
-//Use Custom Middleware to get response template in all api routes
-server.use( responseTemplate )
-&nbsp;
-//Setting up routes
-server.use('/api/todos', todosRouter)
-&nbsp;
-&nbsp;
-server.get('/', <span class="fstat-no" title="function not covered" >(r</span>eq, res: any) =&gt; {
-<span class="cstat-no" title="statement not covered" >    res.status(200).send("Root / Working...")</span>
-})
-&nbsp;
-//Error Control
-server.use(<span class="fstat-no" title="function not covered" >function (</span>err, req, res, next) {
-&nbsp;
-<span class="cstat-no" title="statement not covered" >    console.error(err)</span>
-<span class="cstat-no" title="statement not covered" >    res.status(500).send('Something broke!')</span>
-&nbsp;
-})
-&nbsp;
-export default server</pre></td></tr>
+export default new App().server</pre></td></tr>
 </table></pre>
 <div class='push'></div><!-- for sticky footer -->
 </div><!-- /wrapper -->
 <div class='footer quiet pad2 space-top1 center small'>
   Code coverage
-  generated by <a href="https://istanbul.js.org/" target="_blank">istanbul</a> at Sat Sep 22 2018 13:08:41 GMT+0500 (Pakistan Standard Time)
+  generated by <a href="https://istanbul.js.org/" target="_blank">istanbul</a> at Wed Sep 26 2018 00:52:36 GMT+0500 (Pakistan Standard Time)
 </div>
 </div>
 <script src="..\prettify.js"></script>

@@ -4,15 +4,22 @@ import server from '../app';
 
 //Test either todos is coming from post-gre-sql
 describe("GET todos test", () => {
-  it("should return 200 OK if route Success ", () => {
+  it("should return 200 OK And Success in Response Body", (done) => {
     return request(server).get("/api/todos/")
-      .expect(200);
+      .expect(200, done)
+      .expect(function (res) {
+        if (!('success' in res.body)) {
+          throw new Error('Missing Desired Object');
+        } else {
+          console.log("Test Passed")
+        }
+      }, done)
   });
 });
 
 //Test either todos insert in post-gre-sql
 describe('POST /task restful Api', function () {
-  it('responds with json', function (done) {
+  it('should return 200 OK And Success in Response Body', function (done) {
     request(server)
       .post('/api/todos/')
       .send(
@@ -21,26 +28,36 @@ describe('POST /task restful Api', function () {
           place: "e lab",
           description: "test NO# 3"
         })
-      .expect(200)
-      .end(function (err, res) {
-        if (err) return done(err);
-        done();
-      });
+      .expect(200, done)
+      .expect(function (res) {
+        if (!('success' in res.body)) {
+          throw new Error('Missing Desired Object');
+        } else {
+          console.log("Test Passed")
+        }
+      }, done)
   });
 });
 
 //test todo route to get a one single todo
 describe("GET Onetodo test", () => {
-  it("should return 200 OK", () => {
+  it("should return 200 OK And Success in Response Body", (done) => {
     return request(server).get("/api/todos/5")
-      .expect(200);
+      .expect(200, done)
+      .expect(function (res) {
+        if (!('success' in res.body)) {
+          throw new Error('Missing Desired Object');
+        } else {
+          console.log("Test Passed")
+        }
+      }, done)
   });
 });
 
 
 //test Update  req in todos route
 describe('Put /tasks restful Api', function () {
-  it('responds with json', function (done) {
+  it('should return 200 OK And Success in Response Body', function (done) {
     request(server)
       .put('/api/todos/5')
       .send(
@@ -49,18 +66,28 @@ describe('Put /tasks restful Api', function () {
           description: "at 1pm",
           place: "e lab put route",
         })
-      .expect(200)
-      .end(function (err, res) {
-        if (err) return done(err);
-        done();
-      });
+      .expect(200, done)
+      .expect(function (res) {
+        if (!('success' in res.body)) {
+          throw new Error('Missing Desired Object');
+        } else {
+          console.log("Test Passed")
+        }
+      }, done)
   });
 });
 
 //test todo delete
 describe("DELETE todo test", () => {
-  it("should return 200 OK", () => {
+  it("should return 200 OK And Success in Response Body", (done) => {
     return request(server).delete("/api/todos/10")
-      .expect(200);
+      .expect(200, done)
+      .expect(function (res) {
+        if (!('success' in res.body)) {
+          throw new Error('Missing Desired Object');
+        } else {
+          console.log("Test Passed")
+        }
+      }, done)
   });
 });
