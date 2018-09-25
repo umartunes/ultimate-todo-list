@@ -8,16 +8,21 @@ export class todosRouter {
 
     public routes(server) {
 
-        server.route('/api/todos').get((req : Request, res : any) => {
+        server.route('/api/todos').get((req : Request, res : any, next) => {
 
             let $query : object = {}
 
             Todos.find($query).sort({ date: -1 }).exec((err, todos) => {
 
-                if (!todos) {
+                if (err) {
+                    return next(err)
+                }
+
+                if (!todos.length) {
                     res.t.message = "No Todos available"
                     return res.status(200).send(res.t)
                 }
+                
                 res.t.success = true
                 res.t.message = "Data found"
                 res.t.data = todos
@@ -28,15 +33,19 @@ export class todosRouter {
         })
 
         // Sigle Todo Get
-        server.route('/api/todos/:id').get(function (req : Request, res : any) {
+        server.route('/api/todos/:id').get(function (req : Request, res : any, next) {
 
             let { id }: any = req.params
 
             Todos.findById(id).exec(function (err, todo: any) {
 
+                if (err) {
+                    return next(err)
+                }
+
                 if (!todo) {
                     res.t.message = "Todo not available"
-                    return res.status(200).send(res.t)
+                    return res.status(404).send(res.t)
                 }
 
                 res.t.success = true
@@ -50,7 +59,7 @@ export class todosRouter {
         })
 
         // insert Todo 
-        server.route('/api/todos').post(function (req : Request, res: any) {
+        server.route('/api/todos').post(function (req : Request, res: any, next) {
 
             // console.log(req.body)
             // console.log(req.body.moreInfo)
@@ -68,9 +77,8 @@ export class todosRouter {
 
             todo.save(function (err, todo) {
 
-                if (!todo) {
-                    res.t.message = "Todo not available"
-                    return res.status(200).send(res.t)
+                if (err) {
+                    return next(err)
                 }
 
                 res.t.success = true
@@ -85,7 +93,7 @@ export class todosRouter {
 
         // Update Todos 
 
-        server.route('/api/todos/:id').put(function (req : Request, res: any) {
+        server.route('/api/todos/:id').put(function (req : Request, res: any, next) {
 
             if (!req.body.title || !req.body.place || !req.body.description) {
                 res.t.message = "Invalid Request"
@@ -97,9 +105,8 @@ export class todosRouter {
 
             Todos.findByIdAndUpdate(id, { title, place, description, status }).exec(function (err: any, todo: any) {
 
-                if (!todo) {
-                    res.t.message = "Todo not available"
-                    return res.status(200).send(res.t)
+                if (err) {
+                    return next(err)
                 }
 
                 res.t.success = true
@@ -113,15 +120,14 @@ export class todosRouter {
         })
 
         //Delete Todo
-        server.route('/api/todos/:id').delete(function (req: Request, res: any) {
+        server.route('/api/todos/:id').delete(function (req: Request, res: any, next) {
 
             let { id }: any = req.params;
 
             Todos.findByIdAndRemove(id).exec(function (err: any, todo: any) {
-
-                if (!todo) {
-                    res.t.message = "Todo not available"
-                    return res.status(200).send(res.t)
+                
+                if (err) {
+                    return next(err)
                 }
 
                 res.t.success = true

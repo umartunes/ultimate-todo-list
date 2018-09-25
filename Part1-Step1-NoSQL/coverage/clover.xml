@@ -1,62 +1,40 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<<<<<<< HEAD
-<coverage generated="1537384847781" clover="3.2.0">
-  <project timestamp="1537384847782" name="All files">
-    <metrics statements="45" coveredstatements="40" conditionals="4" coveredconditionals="3" methods="6" coveredmethods="4" elements="55" coveredelements="47" complexity="0" loc="45" ncloc="45" packages="5" files="5" classes="5">
+<coverage generated="1537888504815" clover="3.2.0">
+  <project timestamp="1537888504815" name="All files">
+    <metrics statements="101" coveredstatements="83" conditionals="26" coveredconditionals="17" methods="18" coveredmethods="16" elements="145" coveredelements="116" complexity="0" loc="101" ncloc="101" packages="5" files="5" classes="5">
       <package name="lib">
-        <metrics statements="16" coveredstatements="13" conditionals="0" coveredconditionals="0" methods="2" coveredmethods="0"/>
+        <metrics statements="24" coveredstatements="21" conditionals="0" coveredconditionals="0" methods="5" coveredmethods="3"/>
         <file name="app.ts" path="D:\Programming\ultimate-todo-list\Part1-Step1-NoSQL/lib\app.ts">
-          <metrics statements="16" coveredstatements="13" conditionals="0" coveredconditionals="0" methods="2" coveredmethods="0"/>
+          <metrics statements="24" coveredstatements="21" conditionals="0" coveredconditionals="0" methods="5" coveredmethods="3"/>
           <line num="1" count="1" type="stmt"/>
           <line num="2" count="1" type="stmt"/>
-          <line num="5" count="1" type="stmt"/>
-          <line num="9" count="1" type="stmt"/>
-          <line num="11" count="1" type="stmt"/>
-          <line num="14" count="1" type="stmt"/>
-          <line num="17" count="1" type="stmt"/>
-          <line num="18" count="1" type="stmt"/>
-          <line num="22" count="1" type="stmt"/>
-          <line num="25" count="1" type="stmt"/>
-          <line num="27" count="1" type="stmt"/>
-          <line num="28" count="0" type="stmt"/>
-          <line num="32" count="1" type="stmt"/>
-          <line num="34" count="0" type="stmt"/>
-          <line num="35" count="0" type="stmt"/>
-          <line num="39" count="1" type="stmt"/>
-=======
-<coverage generated="1537602127750" clover="3.2.0">
-  <project timestamp="1537602127751" name="All files">
-    <metrics statements="92" coveredstatements="69" conditionals="22" coveredconditionals="15" methods="14" coveredmethods="12" elements="128" coveredelements="96" complexity="0" loc="92" ncloc="92" packages="5" files="5" classes="5">
-      <package name="lib">
-        <metrics statements="16" coveredstatements="13" conditionals="0" coveredconditionals="0" methods="2" coveredmethods="0"/>
-        <file name="app.ts" path="E:\Saylani\Ultimate Todo App\New Folder\ultimate-todo-list\Part1-Step1-NoSQL/lib\app.ts">
-          <metrics statements="16" coveredstatements="13" conditionals="0" coveredconditionals="0" methods="2" coveredmethods="0"/>
-          <line num="1" count="1" type="stmt"/>
-          <line num="3" count="1" type="stmt"/>
           <line num="6" count="1" type="stmt"/>
-          <line num="10" count="1" type="stmt"/>
-          <line num="12" count="1" type="stmt"/>
-          <line num="15" count="1" type="stmt"/>
-          <line num="18" count="1" type="stmt"/>
+          <line num="9" count="1" type="stmt"/>
+          <line num="16" count="1" type="stmt"/>
           <line num="19" count="1" type="stmt"/>
-          <line num="23" count="1" type="stmt"/>
-          <line num="26" count="1" type="stmt"/>
-          <line num="28" count="1" type="stmt"/>
-          <line num="29" count="0" type="stmt"/>
+          <line num="20" count="1" type="stmt"/>
+          <line num="22" count="1" type="stmt"/>
+          <line num="27" count="1" type="stmt"/>
+          <line num="29" count="1" type="stmt"/>
+          <line num="30" count="1" type="stmt"/>
           <line num="33" count="1" type="stmt"/>
-          <line num="35" count="0" type="stmt"/>
-          <line num="36" count="0" type="stmt"/>
-          <line num="40" count="1" type="stmt"/>
->>>>>>> part1-step1
+          <line num="34" count="5" type="stmt"/>
+          <line num="35" count="5" type="stmt"/>
+          <line num="36" count="5" type="stmt"/>
+          <line num="37" count="5" type="stmt"/>
+          <line num="38" count="5" type="stmt"/>
+          <line num="42" count="1" type="stmt"/>
+          <line num="43" count="1" type="stmt"/>
+          <line num="44" count="0" type="stmt"/>
+          <line num="48" count="1" type="stmt"/>
+          <line num="49" count="0" type="stmt"/>
+          <line num="50" count="0" type="stmt"/>
+          <line num="56" count="1" type="stmt"/>
         </file>
       </package>
       <package name="lib.config">
         <metrics statements="6" coveredstatements="6" conditionals="2" coveredconditionals="2" methods="1" coveredmethods="1"/>
-<<<<<<< HEAD
         <file name="db-config.ts" path="D:\Programming\ultimate-todo-list\Part1-Step1-NoSQL/lib\config\db-config.ts">
-=======
-        <file name="db-config.ts" path="E:\Saylani\Ultimate Todo App\New Folder\ultimate-todo-list\Part1-Step1-NoSQL/lib\config\db-config.ts">
->>>>>>> part1-step1
           <metrics statements="6" coveredstatements="6" conditionals="2" coveredconditionals="2" methods="1" coveredmethods="1"/>
           <line num="1" count="1" type="stmt"/>
           <line num="3" count="1" type="cond" truecount="2" falsecount="0"/>
@@ -68,116 +46,91 @@
       </package>
       <package name="lib.middlewares">
         <metrics statements="4" coveredstatements="4" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="1"/>
-<<<<<<< HEAD
         <file name="response-template.ts" path="D:\Programming\ultimate-todo-list\Part1-Step1-NoSQL/lib\middlewares\response-template.ts">
-          <metrics statements="4" coveredstatements="4" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="1"/>
-          <line num="1" count="1" type="stmt"/>
-          <line num="3" count="1" type="stmt"/>
-          <line num="9" count="1" type="stmt"/>
-=======
-        <file name="response-template.ts" path="E:\Saylani\Ultimate Todo App\New Folder\ultimate-todo-list\Part1-Step1-NoSQL/lib\middlewares\response-template.ts">
           <metrics statements="4" coveredstatements="4" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="1"/>
           <line num="1" count="1" type="stmt"/>
           <line num="3" count="5" type="stmt"/>
           <line num="9" count="5" type="stmt"/>
->>>>>>> part1-step1
           <line num="13" count="1" type="stmt"/>
         </file>
       </package>
       <package name="lib.models">
         <metrics statements="5" coveredstatements="5" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
-<<<<<<< HEAD
         <file name="model-todos.ts" path="D:\Programming\ultimate-todo-list\Part1-Step1-NoSQL/lib\models\model-todos.ts">
-=======
-        <file name="model-todos.ts" path="E:\Saylani\Ultimate Todo App\New Folder\ultimate-todo-list\Part1-Step1-NoSQL/lib\models\model-todos.ts">
->>>>>>> part1-step1
           <metrics statements="5" coveredstatements="5" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
           <line num="1" count="1" type="stmt"/>
           <line num="3" count="1" type="stmt"/>
           <line num="5" count="1" type="stmt"/>
-<<<<<<< HEAD
-          <line num="36" count="1" type="stmt"/>
-          <line num="38" count="1" type="stmt"/>
-        </file>
-      </package>
-      <package name="lib.routes">
-        <metrics statements="14" coveredstatements="12" conditionals="2" coveredconditionals="1" methods="2" coveredmethods="2"/>
-        <file name="routes-todos.ts" path="D:\Programming\ultimate-todo-list\Part1-Step1-NoSQL/lib\routes\routes-todos.ts">
-          <metrics statements="14" coveredstatements="12" conditionals="2" coveredconditionals="1" methods="2" coveredmethods="2"/>
-=======
           <line num="31" count="1" type="stmt"/>
           <line num="33" count="1" type="stmt"/>
         </file>
       </package>
       <package name="lib.routes">
-        <metrics statements="61" coveredstatements="41" conditionals="20" coveredconditionals="13" methods="10" coveredmethods="10"/>
-        <file name="routes-todos.ts" path="E:\Saylani\Ultimate Todo App\New Folder\ultimate-todo-list\Part1-Step1-NoSQL/lib\routes\routes-todos.ts">
-          <metrics statements="61" coveredstatements="41" conditionals="20" coveredconditionals="13" methods="10" coveredmethods="10"/>
->>>>>>> part1-step1
+        <metrics statements="62" coveredstatements="47" conditionals="24" coveredconditionals="15" methods="11" coveredmethods="11"/>
+        <file name="routes-todos.ts" path="D:\Programming\ultimate-todo-list\Part1-Step1-NoSQL/lib\routes\routes-todos.ts">
+          <metrics statements="62" coveredstatements="47" conditionals="24" coveredconditionals="15" methods="11" coveredmethods="11"/>
           <line num="1" count="1" type="stmt"/>
-          <line num="2" count="1" type="stmt"/>
-          <line num="4" count="1" type="stmt"/>
-          <line num="6" count="1" type="stmt"/>
-          <line num="8" count="1" type="stmt"/>
-          <line num="10" count="1" type="stmt"/>
-          <line num="12" count="1" type="cond" truecount="1" falsecount="1"/>
-          <line num="13" count="0" type="stmt"/>
-          <line num="14" count="0" type="stmt"/>
-          <line num="17" count="1" type="stmt"/>
-          <line num="18" count="1" type="stmt"/>
-          <line num="19" count="1" type="stmt"/>
-          <line num="21" count="1" type="stmt"/>
+          <line num="3" count="1" type="stmt"/>
+          <line num="5" count="1" type="stmt"/>
+          <line num="7" count="1" type="stmt"/>
+          <line num="11" count="1" type="stmt"/>
+          <line num="13" count="1" type="stmt"/>
+          <line num="15" count="1" type="stmt"/>
+          <line num="17" count="1" type="cond" truecount="1" falsecount="1"/>
+          <line num="18" count="0" type="stmt"/>
+          <line num="21" count="1" type="cond" truecount="1" falsecount="1"/>
+          <line num="22" count="0" type="stmt"/>
+          <line num="23" count="0" type="stmt"/>
+          <line num="26" count="1" type="stmt"/>
+          <line num="27" count="1" type="stmt"/>
           <line num="28" count="1" type="stmt"/>
-<<<<<<< HEAD
-=======
-          <line num="30" count="1" type="stmt"/>
-          <line num="32" count="1" type="stmt"/>
-          <line num="34" count="1" type="cond" truecount="1" falsecount="1"/>
-          <line num="35" count="1" type="stmt"/>
+          <line num="29" count="1" type="stmt"/>
           <line num="36" count="1" type="stmt"/>
-          <line num="39" count="0" type="stmt"/>
-          <line num="40" count="0" type="stmt"/>
-          <line num="41" count="0" type="stmt"/>
+          <line num="38" count="1" type="stmt"/>
+          <line num="40" count="1" type="stmt"/>
+          <line num="42" count="1" type="cond" truecount="1" falsecount="1"/>
           <line num="43" count="0" type="stmt"/>
-          <line num="50" count="1" type="stmt"/>
-          <line num="55" count="1" type="cond" truecount="4" falsecount="1"/>
-          <line num="56" count="0" type="stmt"/>
-          <line num="57" count="0" type="stmt"/>
-          <line num="60" count="1" type="stmt"/>
-          <line num="66" count="1" type="stmt"/>
-          <line num="68" count="1" type="cond" truecount="1" falsecount="1"/>
+          <line num="46" count="1" type="cond" truecount="1" falsecount="1"/>
+          <line num="47" count="1" type="stmt"/>
+          <line num="48" count="1" type="stmt"/>
+          <line num="51" count="0" type="stmt"/>
+          <line num="52" count="0" type="stmt"/>
+          <line num="53" count="0" type="stmt"/>
+          <line num="55" count="0" type="stmt"/>
+          <line num="62" count="1" type="stmt"/>
+          <line num="67" count="1" type="cond" truecount="4" falsecount="1"/>
+          <line num="68" count="0" type="stmt"/>
           <line num="69" count="0" type="stmt"/>
-          <line num="70" count="0" type="stmt"/>
-          <line num="73" count="1" type="stmt"/>
-          <line num="74" count="1" type="stmt"/>
-          <line num="75" count="1" type="stmt"/>
-          <line num="77" count="1" type="stmt"/>
+          <line num="72" count="1" type="stmt"/>
+          <line num="78" count="1" type="stmt"/>
+          <line num="80" count="1" type="cond" truecount="1" falsecount="1"/>
+          <line num="81" count="0" type="stmt"/>
+          <line num="84" count="1" type="stmt"/>
           <line num="85" count="1" type="stmt"/>
-          <line num="87" count="1" type="cond" truecount="4" falsecount="1"/>
-          <line num="88" count="0" type="stmt"/>
-          <line num="89" count="0" type="stmt"/>
-          <line num="92" count="1" type="stmt"/>
-          <line num="93" count="1" type="stmt"/>
-          <line num="95" count="1" type="stmt"/>
-          <line num="97" count="1" type="cond" truecount="1" falsecount="1"/>
-          <line num="98" count="1" type="stmt"/>
-          <line num="99" count="1" type="stmt"/>
-          <line num="102" count="0" type="stmt"/>
-          <line num="103" count="0" type="stmt"/>
-          <line num="104" count="0" type="stmt"/>
-          <line num="106" count="0" type="stmt"/>
+          <line num="86" count="1" type="stmt"/>
+          <line num="88" count="1" type="stmt"/>
+          <line num="96" count="1" type="stmt"/>
+          <line num="98" count="1" type="cond" truecount="4" falsecount="1"/>
+          <line num="99" count="0" type="stmt"/>
+          <line num="100" count="0" type="stmt"/>
+          <line num="103" count="1" type="stmt"/>
+          <line num="104" count="1" type="stmt"/>
+          <line num="106" count="1" type="stmt"/>
+          <line num="108" count="1" type="cond" truecount="1" falsecount="1"/>
+          <line num="109" count="0" type="stmt"/>
+          <line num="112" count="1" type="stmt"/>
           <line num="113" count="1" type="stmt"/>
-          <line num="115" count="1" type="stmt"/>
-          <line num="117" count="1" type="stmt"/>
-          <line num="119" count="1" type="cond" truecount="1" falsecount="1"/>
-          <line num="120" count="1" type="stmt"/>
-          <line num="121" count="1" type="stmt"/>
-          <line num="124" count="0" type="stmt"/>
-          <line num="125" count="0" type="stmt"/>
-          <line num="126" count="0" type="stmt"/>
-          <line num="128" count="0" type="stmt"/>
+          <line num="114" count="1" type="stmt"/>
+          <line num="116" count="1" type="stmt"/>
+          <line num="123" count="1" type="stmt"/>
+          <line num="125" count="1" type="stmt"/>
+          <line num="127" count="1" type="stmt"/>
+          <line num="129" count="1" type="cond" truecount="1" falsecount="1"/>
+          <line num="130" count="0" type="stmt"/>
+          <line num="133" count="1" type="stmt"/>
+          <line num="134" count="1" type="stmt"/>
+          <line num="135" count="1" type="stmt"/>
           <line num="137" count="1" type="stmt"/>
->>>>>>> part1-step1
         </file>
       </package>
     </metrics>

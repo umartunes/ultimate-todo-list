@@ -39,13 +39,9 @@ export class todosRouters {
                 if (err) {
                     return next(err)
                 }
-                if (!todos || !todos.rows.length) {
-                    res.t.message = "No Todos available"
-                    return res.status(203).send(res.t)
-                }
+ 
                 res.t.success = true
-                res.t.message = "Todos Found"
-                res.t.data = todos.rows
+                res.t.message = "Todo Added"
                 res.status(200).send(res.t)
             })
         });
@@ -64,7 +60,7 @@ export class todosRouters {
                 }
                 if (!todos || !todos.rows.length) {
                     res.t.message = "No Todos available"
-                    return res.status(200).send(res.t)
+                    return res.status(404).send(res.t)
                 }
                 res.t.success = true
                 res.t.message = "Todos Found"
@@ -90,14 +86,10 @@ export class todosRouters {
                 if (err) {
                     return next(err)
                 }
-                if (!todo) {
-                    res.t.message = "Todo not available"
-                    return res.send(res.t)
-                }
+
                 res.t.success = true
-                res.t.message = "Todo Found"
-                res.t.data = todo
-                return res.send(res.t)
+                res.t.message = "Todo edited"
+                return res.status(200).send(res.t)
             })
         })
 
@@ -105,21 +97,19 @@ export class todosRouters {
         server.route('/api/todos/:id').delete(function (req: Request, res: any, next) {
             let { id }: any = req.params;
             const queryDelete = {
-                text: 'DELETE FROM todos  WHERE _id = ($1) RETURNING *',
+                text: 'DELETE FROM todos WHERE _id = ($1) RETURNING *',
                 values: [id]
             }
             client.query(queryDelete, (err: any, todo: any) => {
+
                 if (err) {
                     return next(err)
                 }
-                if (!todo) {
-                    res.t.message = "Todo not available"
-                    return res.status(203).send(res.t)
-                }
+
                 res.t.success = true
                 res.t.message = "Todo Deleted"
-                res.t.data = todo
-                return res.send(res.t)
+                return res.status(200).send(res.t)
+
             })
         })
     }
