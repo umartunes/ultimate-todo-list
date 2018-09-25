@@ -1,6 +1,6 @@
 const grpc = require("grpc");
 const protoLoader = require("@grpc/proto-loader");
-const protoPath = require("path").join( __dirname + "/proto", "services.proto");
+const protoPath = require("path").join(__dirname + "/proto", "services.proto");
 const services = protoLoader.loadSync(protoPath);
 
 const methods = require('./methods/methods')
@@ -8,11 +8,11 @@ const methods = require('./methods/methods')
 const server = new grpc.Server();
 
 server.addService(services.TodoService, {
-  GetTodos: methods.getTodos,
-  SaveTodo: methods.saveTodo,
-  UpdateTodo: methods.updateTodo,
-  DeleteTodo: methods.deleteTodo,
-  GetSingleTodo: methods.getSingleTodo
+	GetTodos: methods.getTodos,
+	SaveTodo: methods.saveTodo,
+	UpdateTodo: methods.updateTodo,
+	DeleteTodo: methods.deleteTodo,
+	GetSingleTodo: methods.getSingleTodo
 });
 
 const PORT = 5005;
