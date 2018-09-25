@@ -13,7 +13,7 @@ const Client = new services.TodoService(
 );
 
 const option = parseInt(process.argv[2], 10);
-const _id = "5ba896de265eb62600d5d39f";
+const _id = "1";
 
 switch (option) {
 	case 1:
