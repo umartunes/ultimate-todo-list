@@ -4,13 +4,12 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 class TodoForm extends React.Component {
 
     state = {
-        id: Math.random().toString(36).slice(), 
+        id: this.props.data ? this.props.data.id : Math.random().toString(36).slice(2),
         title: this.props.data ? this.props.data.title : '',
         location: this.props.data ? this.props.data.location : '',
         description: this.props.data ? this.props.data.description : '',
         status: false,
-        error:''
-
+        error: ''
     };
 
     changeHandler = (e) => {
@@ -21,29 +20,27 @@ class TodoForm extends React.Component {
 
     formHandeler = (e) => {
         e.preventDefault();
-        if (!this.state.title || !this.state.location || !this.state.description) 
-        {
-           
-            window.notify( "Please Fill all the fields" ,"error")
-            
+        if (!this.state.title || !this.state.location || !this.state.description) {
+
+            window.notify("Please Fill all the fields", "error")
+
         }
-        else{
-        this.props.onSubmit({
-            id: this.state.id,
-            title: this.state.title,
-            location: this.state.location,
-            description: this.state.description,
-            status: this.state.status
-        })
-
-        this.setState(() => (
-            {
-                title: '',
-                location: '',
-                description: '',
-
+        else {
+            this.props.onSubmit({
+                id: this.state.id,
+                title: this.state.title,
+                location: this.state.location,
+                description: this.state.description,
+                status: this.state.status
             })
-        )
+
+            this.setState(() => (
+                {
+                    title: '',
+                    location: '',
+                    description: '',
+                })
+            )
         }
     }
 

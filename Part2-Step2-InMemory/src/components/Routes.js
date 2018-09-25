@@ -11,9 +11,9 @@ class Routes extends Component {
 		return (
 			<Fragment>
 				<Switch>
-					<Route  exact={true} path="/" component={Dashboard} />
-					<Route exact={true} path="/create" component={AddTodoPage }/>
-					<Route exact={true} path="/edit/:id" component={EditTodoPage }/>
+					<Route exact={true} path="/" component={Dashboard} />
+					<Route exact={true} path="/create" component={AddTodoPage} />
+					<Route exact={true} path="/edit/:id" component={EditTodoPage} />
 				</Switch>
 			</Fragment>
 		)

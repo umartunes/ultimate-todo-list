@@ -10,7 +10,6 @@ import './css/custom.css'
 
 import InitializeApp from './components/InitializeApp'
 import Routes from './components/Routes'
-// import MobileOnly from './components/MobileOnly'
 
 class App extends Component {
 
@@ -21,7 +20,6 @@ class App extends Component {
 
 				<InitializeApp />
 				<Routes />
-				{/* { window.isMobile ? <Routes /> : <MobileOnly /> } */}
 
 			</Fragment>
 		);

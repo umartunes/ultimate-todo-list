@@ -26,14 +26,12 @@ export class AddTodoPage extends React.Component {
                             <div className="col s12" >
                                 <h5 className="white-text center-align">Add New Todo</h5>
                                 <Link to="/" className="backButton white-text">
-                                <FontAwesomeIcon icon="long-arrow-alt-left" className=" fs-32 white-text" size="2x" />
-                            </Link>
+                                    <FontAwesomeIcon icon="long-arrow-alt-left" className=" fs-32 white-text" size="2x" />
+                                </Link>
                             </div>
                         </div>
                     </div>
-                    <TodoForm
-                        onSubmit={this.onSubmit}
-                    />
+                    <TodoForm onSubmit={this.onSubmit} />
                 </main>
             </Fragment>
         );

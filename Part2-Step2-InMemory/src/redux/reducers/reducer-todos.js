@@ -1,17 +1,13 @@
-
-
 const initialState = {
     todos: [],
     error: null,
     isLoading: false,
-
 }
 
 const todos = (state = initialState, action) => {
 
     switch (action.type) {
         case 'PUSH_TODOS':
-            // console.log('v',[...state.todos, action.payload.todo]);
             return Object.assign({}, state, { todos: [...state.todos, action.payload.todo] })
 
         case 'REMOVE_TODO':
@@ -21,20 +17,20 @@ const todos = (state = initialState, action) => {
             })
 
         case 'EDIT_TODO':
-            return state.todos.map(
-                (todos) => {
+            
+            return Object.assign({}, state, {
 
-                    if (todos.id === action.id) {
-                        return { ...todos, ...action.updates }
+                todos: state.todos.map((todo) => {
 
-                    }
-                    else {
-                        return todos;
-                    }
-                }
-            );
+                    if (todo.id === action.payload.todo.id)
+                        todo = action.payload.todo
+
+                    return todo
+                })
+            })
         case 'EDIT_STATUS':
             return Object.assign({}, state, {
+
                 todos: state.todos.map((todos) => {
 
                     if (todos.id === action.payload.id)
@@ -43,8 +39,7 @@ const todos = (state = initialState, action) => {
                     return todos
 
 
-                }
-                )
+                })
             })
         default:
             return state;

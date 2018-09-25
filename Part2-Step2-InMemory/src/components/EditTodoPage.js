@@ -7,11 +7,10 @@ import SideNave from './SideNave';
 import { startEditTodo } from '../redux/actions/actions-todos';
 
 
-
 export class EditTodoPage extends React.Component {
 
     onSubmit = (todo) => {
-        this.props.startEditTodo(this.props.todos.id, todo);
+        this.props.startEditTodo(todo);
         this.props.history.push('/');
     };
 
@@ -29,10 +28,7 @@ export class EditTodoPage extends React.Component {
                         </div>
                     </div>
                 </div>
-                <TodoForm
-                    data={this.props.todos}
-                    onSubmit={this.onSubmit}
-                />
+                <TodoForm data={this.props.todo} onSubmit={this.onSubmit} />
             </main>
         );
     };
@@ -40,7 +36,7 @@ export class EditTodoPage extends React.Component {
 
 
 const mapStateToProps = (state, props) => ({
-    todos: state.todos.todos.find((todo) => todo.id == props.match.params.id)
+    todo: state.todos.todos.find((todo) => todo.id === props.match.params.id)
 });
 
 const mapDispatchToProps = (dispatch, props) => ({

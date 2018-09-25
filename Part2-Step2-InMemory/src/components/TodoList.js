@@ -14,9 +14,6 @@ class TodoList extends React.Component {
         this.props.removeTodo(id);
     };
 
-
-
-
     render() {
 
         const todo = this.props.todos.todos;
