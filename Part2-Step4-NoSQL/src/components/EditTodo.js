@@ -4,7 +4,7 @@ import { connect } from 'react-redux'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import SideNave from './SideNave'
 import { Link } from 'react-router-dom'
-import { fetchSingle, setError, updateTodo } from '../redux/actions/actions-todos'
+import { fetchSingle, updateTodo } from '../redux/actions/actions-todos'
 import axios from 'axios'
 // import ShowTodo from './showTodo'
 
@@ -33,34 +33,32 @@ class EditTodo extends React.Component {
             errors["title"] = "Please Add Title of Task";
         }
 
-
-
         if (!fields["place"]) {
             formIsValid = false;
             errors["place"] = "Please Add Place Detail";
         }
-
-
-
 
         if (!fields["description"]) {
             formIsValid = false;
             errors["description"] = "Please Add Description of Task";
         }
 
-
-
         this.setState({ errors: errors });
         return formIsValid;
+
     }
-    
+
     onchange = (event) => {
 
         event.preventDefault();
 
         this.setState({ [event.target.name]: event.target.value })
-        this.state.errors[event.target.name] = '';
+
+        let errors = Object.assign({}, this.state.errors, { [event.target.name]: '' })
+        this.setState({ errors: errors })
+
     }
+
     updatTodoFN = (event) => {
 
         event.preventDefault();
@@ -86,7 +84,10 @@ class EditTodo extends React.Component {
 
             .then(todo => { this.setState({ ...todo.data }) })
 
-            .catch(error => { this.props.setError(error) })
+            .catch(error => {
+                console.log(error)
+                window.notify("something went wrong.", 'error')
+            })
 
     }
 
@@ -173,5 +174,5 @@ class EditTodo extends React.Component {
 }
 
 
-export default connect(null, { fetchSingle, setError, updateTodo })(EditTodo);
+export default connect(null, { fetchSingle, updateTodo })(EditTodo);
 

@@ -27,28 +27,20 @@ class AddTodo extends React.Component {
         let errors = {};
         let formIsValid = true;
 
-
         if (!fields["title"]) {
             formIsValid = false;
             errors["title"] = "Please Add Title of Task";
         }
-
-
 
         if (!fields["place"]) {
             formIsValid = false;
             errors["place"] = "Please Add Place Detail";
         }
 
-
-
-
         if (!fields["description"]) {
             formIsValid = false;
             errors["description"] = "Please Add Description of Task";
         }
-
-
 
         this.setState({ errors: errors });
         return formIsValid;
@@ -59,9 +51,9 @@ class AddTodo extends React.Component {
         event.preventDefault();
 
         this.setState({ [event.target.name]: event.target.value })
-        this.state.errors[event.target.name] = '';
 
-
+        let errors = Object.assign({}, this.state.errors, { [event.target.name]: '' })
+        this.setState({ errors: errors })
 
     }
     addTodoFn = (event) => {

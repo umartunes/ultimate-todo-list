@@ -1,6 +1,4 @@
-import axios from 'axios';
 import db from '../../config/db';
-
 
 export const setLoading = () => {
     return {

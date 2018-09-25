@@ -40,7 +40,7 @@ export class EditTodoPage extends React.Component {
 
 
 const mapStateToProps = (state, props) => ({
-    todos: state.todos.todos.find((todo) => todo.id == props.match.params.id)
+    todos: state.todos.todos.find((todo) => todo.id === props.match.params.id)
 });
 
 const mapDispatchToProps = (dispatch, props) => ({

@@ -8,8 +8,6 @@ export const setLoading = () => {
 }
 
 
-
-
 export const setCurrentTodo = todo => {
 
     return {
@@ -63,13 +61,12 @@ export const fetch = () => {
 
     return (dispatch, getState) => {
 
- 
+
 
         axios.get(window.baseURL + `/api/todos/`)
             .then(response => response.data)
             .then(result => dispatch(setTodos(result.data)))
             .catch(error => {
-
                 window.notify("Error is Occured")
             })
 
@@ -81,13 +78,12 @@ export const fetchSingle = (_id) => {
 
     return (dispatch, getState) => {
 
-   
+
 
         axios.get(window.baseURL + `/api/todos/${_id}/`)
             .then(response => response.data)
             .then(todo => dispatch(setCurrentTodo(todo)))
             .catch(error => {
-                
                 window.notify("Error is Occured")
             })
 
@@ -106,17 +102,13 @@ export const postTodo = (formData) => {
 
     return (dispatch, getState) => {
 
-    
-
-        axios.post(window.baseURL + `/api/todos/`, formData, )
+        axios.post(window.baseURL + `/api/todos/`, formData)
             .then(response => response.data)
             .then(data => {
                 dispatch(pushTodos(data.data))
                 window.notify("Todo Data Has Been Saved")
-
             })
             .catch(error => {
-
                 window.notify("Error is Occured")
             })
 
@@ -135,9 +127,7 @@ export const updateTodo = (id, formData) => {
 
     return (dispatch, getState) => {
 
-   
-
-        axios.put(window.baseURL + `/api/todos/${id}`, formData, )
+        axios.put(window.baseURL + `/api/todos/${id}`, formData)
             .then(response => response.data)
             .then(data => {
                 console.log('Todo Has Been Updated', data)
@@ -154,10 +144,7 @@ export const updateTodo = (id, formData) => {
 }
 export const updateSatus = (id, formData) => {
 
-
     return (dispatch, getState) => {
-
-
 
         axios.put(window.baseURL + `/api/todos/${id}`, formData)
             .then(response => response.data)
@@ -176,13 +163,9 @@ export const updateSatus = (id, formData) => {
 
 }
 
-
-
 export const deleteSingle = (_id) => {
 
     return (dispatch, getState) => {
-
-   
 
         axios.delete(window.baseURL + `/api/todos/${_id}/`)
             .then(response => response.data)
