@@ -2,19 +2,8 @@
 
 # dependencies
 /node_modules
-/path
-<<<<<<< HEAD
-
-<<<<<<< HEAD
-# testing
 /coverage
-=======
-/uploads/*
-# exception to the rule
-!/uploads/.gitkeep 
->>>>>>> part1-step2
-=======
->>>>>>> part1-step1
+/path
 
 # misc
 .DS_Store
