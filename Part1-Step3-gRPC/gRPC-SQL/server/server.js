@@ -3,9 +3,6 @@ const protoLoader = require("@grpc/proto-loader");
 const protoPath = require("path").join( __dirname + "/proto", "services.proto");
 const services = protoLoader.loadSync(protoPath);
 
-//DB Connection
-require('./config/db-config')
-
 const methods = require('./methods/methods')
 
 const server = new grpc.Server();

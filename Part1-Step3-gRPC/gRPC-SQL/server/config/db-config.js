@@ -1,7 +1,17 @@
-var mongoose = require('mongoose')
+const connectionString = 'postgresql://teamLamda:teamLamda@localhost:5432/todo-work'
+const { Pool } = require('pg')
 
-var db_url = process.env.DB_URL || 'mongodb://localhost:27017/grpc'
-mongoose.connect(db_url, { useNewUrlParser: true })
-var db = mongoose.connection;
-db.on('error', console.error.bind(console, 'DB connection error:'));
-db.once('open', function () { console.log('Successfully connected to DB') });
+//connection with sql
+const client = new Pool({
+    connectionString: connectionString,
+})
+client.connect((err) => {
+    if (err) {
+        console.log(err);
+    }
+    else {
+        console.log("DataBase Has been Successfully Connected!");
+    }
+});
+
+module.exports = client
