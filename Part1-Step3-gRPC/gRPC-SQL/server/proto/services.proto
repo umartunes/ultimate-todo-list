@@ -1,0 +1,41 @@
+// tell the compiler that we are using protobuffers version 3
+syntax = "proto3";
+
+// a unique package name to avoid polluting the global namespace
+// package todogrpc;
+
+// define remote procedure call(RPC) services
+service TodoService {
+  rpc GetTodos (Empty) returns (stream SingleTodo);
+  rpc SaveTodo (SingleTodo) returns (Success);
+  rpc UpdateTodo (SingleTodo) returns (Success);
+  rpc DeleteTodo (SingleID) returns (Success);
+  rpc GetSingleTodo (SingleID) returns (SingleTodo);
+}
+
+// define todo type message
+message Todo {
+  string _id = 1;
+  string title = 2;
+  string place = 3;
+  string description = 4;
+  string status = 5;
+}
+
+// define messages
+message Empty {}
+message Success {
+  bool success = 1;
+}
+
+message SingleTodo {
+  Todo todo = 1;
+}
+
+message SingleID {
+  string _id = 1;
+}
+
+//message TodoList {
+  //repeated Todo todo = 1;
+//}

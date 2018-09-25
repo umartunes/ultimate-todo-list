@@ -1,0 +1,23 @@
+{
+  "name": "ultimate-todo-list",
+  "version": "1.0.0",
+  "description": "The Ultimate TODO list application",
+  "main": "server/server.js",
+  "scripts": {
+    "start": "nodemon server/server.js --watch server --delay 1",
+    "server": "node server/server.js",
+    "test": "jest --watchAll --forceExit --coverage --verbose"
+  },
+  "author": "Muhammad Umar Ahmad",
+  "license": "ISC",
+  "dependencies": {
+    "@grpc/proto-loader": "^0.3.0",
+    "grpc": "^1.15.1",
+    "mongoose": "^5.2.17",
+    "process": "^0.11.10"
+  },
+  "devDependencies": {
+    "jest": "^23.6.0",
+    "nodemon": "^1.18.4"
+  }
+}
