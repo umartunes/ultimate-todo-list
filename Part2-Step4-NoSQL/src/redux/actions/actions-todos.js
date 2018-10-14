@@ -7,7 +7,6 @@ export const setLoading = () => {
     }
 }
 
-
 export const setCurrentTodo = todo => {
 
     return {
